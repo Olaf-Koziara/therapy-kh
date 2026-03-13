@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
-import { ArrowDown } from 'lucide-react';
+import { motion } from "framer-motion";
+import { ArrowDown } from "lucide-react";
 
 const Hero = () => {
   return (
@@ -13,7 +13,7 @@ const Hero = () => {
         <motion.div
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 1, ease: 'easeOut' }}
+          transition={{ duration: 1, ease: "easeOut" }}
         >
           <motion.span
             initial={{ opacity: 0 }}
@@ -29,7 +29,9 @@ const Hero = () => {
             świadomość
           </h1>
           <p className="text-xl text-earth-brown-700 leading-relaxed max-w-lg mb-10">
-            Nazywam się Kamila Helta. Pomagam osobom w kryzysie, zmagającym się z emocjami oraz uzależnieniami odnaleźć drogę do autentycznego życia.
+            Nazywam się Kamila Helta. Pomagam osobom w kryzysie, zmagającym się
+            z emocjami oraz uzależnieniami odnaleźć drogę do autentycznego
+            życia.
           </p>
           <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6">
             <a
@@ -50,7 +52,7 @@ const Hero = () => {
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1.2, ease: 'easeOut' }}
+          transition={{ duration: 1.2, ease: "easeOut" }}
           className="relative"
         >
           {/* Decorative frame */}
@@ -60,7 +62,7 @@ const Hero = () => {
             <img
               src="/images/kamila-helta.jpg"
               alt="Kamila Helta"
-              className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000"
+              className="w-full h-full object-cover  hover:grayscale-0 transition-all duration-1000"
             />
             {/* Overlay */}
             <div className="absolute inset-0 bg-earth-brown-900/10 mix-blend-multiply" />
@@ -73,7 +75,8 @@ const Hero = () => {
             className="absolute -bottom-8 -left-8 bg-white p-8 rounded-2xl shadow-xl border border-earth-beige-100 hidden lg:block max-w-xs"
           >
             <p className="text-earth-brown-800 font-medium italic leading-relaxed">
-              "Psychoterapia to wyjątkowe spotkanie dwojga ludzi, oparte na autentycznym kontakcie."
+              "Psychoterapia to wyjątkowe spotkanie dwojga ludzi, oparte na
+              autentycznym kontakcie."
             </p>
           </motion.div>
         </motion.div>
