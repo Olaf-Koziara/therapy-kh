@@ -23,7 +23,7 @@ const Contact = () => {
 
     const formData = new FormData();
     Object.entries(formState).forEach(([key, value]) => {
-      formData.append(key, value);
+      formData.append(key, String(value));
     });
 
     try {
