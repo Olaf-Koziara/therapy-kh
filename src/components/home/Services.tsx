@@ -1,39 +1,45 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
-import { Heart, Brain, Users, CloudRain, LifeBuoy, Sparkles, UserMinus, Target } from 'lucide-react';
+import { motion } from "framer-motion";
+import { Heart, Brain, Users, CloudRain, Sparkles, Target } from "lucide-react";
 
 const services = [
   {
-    title: "Kryzys życiowy",
-    description: "Wsparcie w trudnych momentach: rozstania, żałoba, nagłe wypadki losowe czy poczucie zagubienia.",
-    icon: CloudRain,
-  },
-  {
-    title: "Emocje i Stres",
-    description: "Praca nad lękiem, wybuchami złości, przedłużającym się smutkiem i wypaleniem zawodowym.",
+    title: "Zaburzenia nastroju i depresja",
+    description:
+      "Wsparcie w przezwyciężaniu depresji, smutku i zaburzeń nastroju. Praca nad przywróceniem równowagi emocjonalnej.",
     icon: Heart,
   },
   {
-    title: "Uzależnienia",
-    description: "Specjalistyczna terapia uzależnień od substancji oraz behawioralnych (gry, internet, zakupy).",
-    icon: Brain,
+    title: "Zaburzenia i stany lękowe",
+    description:
+      "Leczenie lęku, paniki i niepokoju. Nauczenie praktyk radzenia sobie z objawami i przywrócenie poczucia bezpieczeństwa.",
+    icon: CloudRain,
   },
   {
-    title: "Relacje",
-    description: "Trudności w budowaniu bliskich więzi, problemy w relacjach z partnerem lub rodziną.",
-    icon: Users,
-  },
-  {
-    title: "Poczucie wartości",
-    description: "Praca nad niską samooceną, brakiem wiary w siebie i akceptacją własnej przeszłości.",
+    title: "Nadmierny stres i wypalenie",
+    description:
+      "Praca nad zarządzaniem stresem, wypaleniem zawodowym i napięciem emocjonalnym.",
     icon: Target,
   },
   {
-    title: "Rozwój osobisty",
-    description: "Dążenie do lepszego zrozumienia siebie, swoich potrzeb i świadomego podejmowania decyzji.",
+    title: "Zaburzenia psychosomatyczne i odżywiania",
+    description:
+      "Wsparcie w leczeniu zaburzeń psychosomatycznych, zaburzeń odżywiania oraz zwią­zanych z nimi trudności emocjonalnych.",
+    icon: Brain,
+  },
+  {
+    title: "Problemy relacyjne",
+    description:
+      "Trudności w bliskich relacjach z partnerem, rodziną, przyjaciółmi i w środowisku pracy. Praca nad komunikacją i więziami.",
+    icon: Users,
+  },
+  {
+    title: "Kryzys życiowy i trauma",
+    description:
+      "Wsparcie w trudnych momentach: rozstania, żałoba, doświadczenia przemocy, traumy czy nagłe wypadki losowe.",
     icon: Sparkles,
-  }
+  },
 ];
 
 const Services = () => {
@@ -63,7 +69,10 @@ const Services = () => {
           transition={{ delay: 0.2 }}
           className="text-lg text-earth-brown-700 max-w-2xl mx-auto leading-relaxed"
         >
-          Każdy z nas przechodzi przez trudne chwile. Moim zadaniem jest towarzyszyć Ci w drodze do zrozumienia ich przyczyn i odnalezienia wewnętrznej równowagi.
+          Oferuję psychoterapię indywidualną i konsultacje dla osób borykających
+          się z wyzwaniami emocjonalnymi i życiowymi. Moim zadaniem jest
+          towarzyszyć Ci w drodze do zrozumienia ich przyczyn i odnalezienia
+          wewnętrznej równowagi.
         </motion.p>
       </div>
 
@@ -80,7 +89,9 @@ const Services = () => {
             <div className="w-14 h-14 bg-earth-sage-50 text-earth-sage-600 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-earth-sage-600 group-hover:text-white transition-colors duration-500">
               <service.icon size={28} />
             </div>
-            <h3 className="text-xl font-bold text-earth-brown-800 mb-4">{service.title}</h3>
+            <h3 className="text-xl font-bold text-earth-brown-800 mb-4">
+              {service.title}
+            </h3>
             <p className="text-earth-brown-600 leading-relaxed">
               {service.description}
             </p>
@@ -91,7 +102,8 @@ const Services = () => {
       <div className="max-w-7xl mx-auto px-6 mt-16 text-center">
         <div className="bg-earth-sage-600/5 rounded-3xl p-8 md:p-12 border border-earth-sage-200">
           <p className="text-earth-brown-800 text-lg mb-6 italic">
-            "Psychoterapia to nie tylko leczenie zaburzeń, to przede wszystkim proces odzyskiwania kontaktu z samym sobą."
+            "Psychoterapia to nie tylko leczenie zaburzeń, to przede wszystkim
+            proces odzyskiwania kontaktu z samym sobą."
           </p>
           <a
             href="#kontakt"

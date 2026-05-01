@@ -29,8 +29,8 @@ const Hero = () => {
             świadomość
           </h1>
           <p className="text-xl text-earth-brown-700 leading-relaxed max-w-lg mb-10">
-            Nazywam się Kamila Helta. Pomagam osobom w kryzysie, zmagającym się
-            z emocjami oraz uzależnieniami odnaleźć drogę do autentycznego
+            Nazywam się Kamila Helta. Towarzyszę osobom w kryzysie, zmagającym
+            się z emocjami oraz uzależnieniami odnaleźć drogę do autentycznego
             życia.
           </p>
           <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6">
