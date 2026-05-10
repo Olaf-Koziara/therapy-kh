@@ -7,11 +7,11 @@ import { Menu, X, TreeDeciduous } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 const navItems = [
-  { name: 'O mnie', href: '#o-mnie' },
-  { name: 'Oferta', href: '#oferta' },
-  { name: 'Gestalt', href: '#gestalt' },
-  { name: 'On-line', href: '#online' },
-  { name: 'Kontakt', href: '#kontakt' },
+  { name: 'O mnie', href: '/#o-mnie' },
+  { name: 'Oferta', href: '/#oferta' },
+  { name: 'Gestalt', href: '/#gestalt' },
+  { name: 'On-line', href: '/#online' },
+  { name: 'Kontakt', href: '/#kontakt' },
 ];
 
 const Navbar = () => {

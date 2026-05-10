@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { Mail, Phone, MapPin, Send } from "lucide-react";
 import { sendContactForm } from "@/app/actions";
@@ -12,14 +13,19 @@ const Contact = () => {
     phone: "",
     message: "",
     rodoConsent: false,
+    website: "",
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [statusMessage, setStatusMessage] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setErrorMessage("");
+    setStatusMessage("");
 
     const formData = new FormData();
     Object.entries(formState).forEach(([key, value]) => {
@@ -30,16 +36,23 @@ const Contact = () => {
       const result = await sendContactForm(formData);
       if (result.success) {
         setSubmitted(true);
+        setStatusMessage(result.message);
         setFormState({
           name: "",
           email: "",
           phone: "",
           message: "",
           rodoConsent: false,
+          website: "",
         });
+      } else {
+        setErrorMessage(result.message);
       }
     } catch (error) {
       console.error("Error submitting form:", error);
+      setErrorMessage(
+        "Nie udało się wysłać wiadomości. Spróbuj ponownie albo skorzystaj z telefonu lub e-maila.",
+      );
     } finally {
       setIsSubmitting(false);
     }
@@ -139,7 +152,7 @@ const Contact = () => {
                   Wiadomość wysłana!
                 </h3>
                 <p className="text-earth-brown-700 mb-8">
-                  Dziękuję za kontakt. Skontaktuję się z Tobą wkrótce.
+                  {statusMessage || "Dziękuję za kontakt. Skontaktuję się z Tobą wkrótce."}
                 </p>
                 <button
                   onClick={() => setSubmitted(false)}
@@ -150,6 +163,26 @@ const Contact = () => {
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-6">
+                {errorMessage && (
+                  <div
+                    role="alert"
+                    className="rounded-xl border border-red-200 bg-red-50 p-4 text-sm leading-relaxed text-red-800"
+                  >
+                    {errorMessage}
+                  </div>
+                )}
+                <div className="hidden" aria-hidden="true">
+                  <label htmlFor="website">Strona internetowa</label>
+                  <input
+                    type="text"
+                    id="website"
+                    name="website"
+                    value={formState.website}
+                    onChange={handleChange}
+                    tabIndex={-1}
+                    autoComplete="off"
+                  />
+                </div>
                 <div>
                   <label
                     htmlFor="name"
@@ -164,6 +197,7 @@ const Contact = () => {
                     value={formState.name}
                     onChange={handleChange}
                     required
+                    autoComplete="name"
                     className="w-full px-4 py-3 rounded-xl border border-earth-beige-300 focus:outline-none focus:ring-2 focus:ring-earth-sage-500 bg-white transition-all"
                     placeholder="Twoje imię..."
                   />
@@ -183,6 +217,7 @@ const Contact = () => {
                       value={formState.email}
                       onChange={handleChange}
                       required
+                      autoComplete="email"
                       className="w-full px-4 py-3 rounded-xl border border-earth-beige-300 focus:outline-none focus:ring-2 focus:ring-earth-sage-500 bg-white transition-all"
                       placeholder="email@przyklad.pl"
                     />
@@ -200,6 +235,7 @@ const Contact = () => {
                       name="phone"
                       value={formState.phone}
                       onChange={handleChange}
+                      autoComplete="tel"
                       className="w-full px-4 py-3 rounded-xl border border-earth-beige-300 focus:outline-none focus:ring-2 focus:ring-earth-sage-500 bg-white transition-all"
                       placeholder="Numer telefonu..."
                     />
@@ -243,7 +279,14 @@ const Contact = () => {
                     2016/679 z dnia 27 kwietnia 2016 r. w sprawie ochrony osób
                     fizycznych w związku z przetwarzaniem danych osobowych i w
                     sprawie swobodnego przepływu takich danych oraz uchylenia
-                    dyrektywy 95/46/WE (RODO).
+                    dyrektywy 95/46/WE (RODO). Zapoznałam/zapoznałem się z{" "}
+                    <Link
+                      href="/polityka-prywatnosci"
+                      className="font-semibold text-earth-sage-700 underline underline-offset-2 hover:text-earth-sage-600"
+                    >
+                      polityką prywatności
+                    </Link>
+                    .
                   </label>
                 </div>
                 <button
