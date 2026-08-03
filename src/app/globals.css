@@ -1,32 +1,61 @@
 @import "tailwindcss";
 
 @theme {
-  --color-earth-beige-50: #fdfcfb;
-  --color-earth-beige-100: #f7f3f0;
-  --color-earth-beige-200: #eee7e0;
-  --color-earth-beige-300: #e0d5c8;
-  --color-earth-beige-400: #ccb9a3;
-  --color-earth-beige-500: #b89c7d;
+  --color-blue-50: #f0f7fa;
+  --color-blue-100: #dbedf5;
+  --color-blue-200: #b9dde9;
+  --color-blue-300: #8ac4da;
+  --color-blue-400: #55a5c6;
+  --color-blue-500: #338eb5;
+  --color-blue-600: #2779a1; /* Baza */
+  --color-blue-700: #216283;
+  --color-blue-800: #1f526e;
+  --color-blue-900: #1e455c;
+  --color-blue-950: #122c3c;
 
-  --color-earth-sage-50: #f4f7f4;
-  --color-earth-sage-100: #e5ebe5;
-  --color-earth-sage-200: #ced9ce;
-  --color-earth-sage-300: #abc1ab;
-  --color-earth-sage-400: #88a388;
-  --color-earth-sage-500: #6e866e;
-  --color-earth-sage-600: #566a56;
-  --color-earth-sage-700: #465546;
+  --color-sky-50: #f0f9ff;
+  --color-sky-100: #e0f2fe;
+  --color-sky-500: #0284c7;
+  --color-sky-600: #0284c7;
 
-  --color-earth-brown-50: #f9f7f6;
-  --color-earth-brown-100: #f0ebe8;
-  --color-earth-brown-200: #e5dad4;
-  --color-earth-brown-300: #ccb7ad;
-  --color-earth-brown-400: #ad8e7d;
-  --color-earth-brown-500: #94715f;
-  --color-earth-brown-600: #7a5a4a;
-  --color-earth-brown-700: #634a3d;
-  --color-earth-brown-800: #523e34;
-  --color-earth-brown-900: #45352c;
+  --color-slate-50: #f8fafc;
+  --color-slate-100: #f1f5f9;
+  --color-slate-200: #e2e8f0;
+  --color-slate-300: #cbd5e1;
+  --color-slate-400: #94a3b8;
+  --color-slate-500: #64748b;
+  --color-slate-600: #475569;
+  --color-slate-700: #334155;
+  --color-slate-800: #1e293b;
+  --color-slate-900: #0f172a;
+
+  /* Legacy aliases mapped to modern serene blue & slate theme */
+  --color-earth-beige-50: #ffffff;
+  --color-earth-beige-100: #f8fafc;
+  --color-earth-beige-200: #e2e8f0;
+  --color-earth-beige-300: #cbd5e1;
+  --color-earth-beige-400: #94a3b8;
+  --color-earth-beige-500: #64748b;
+
+  --color-earth-sage-50: #eff6ff;
+  --color-earth-sage-100: #dbeafe;
+  --color-earth-sage-200: #bfdbfe;
+  --color-earth-sage-300: #93c5fd;
+  --color-earth-sage-400: #3b82f6;
+  --color-earth-sage-500: #2563eb;
+  --color-earth-sage-600: #1d4ed8;
+  --color-earth-sage-700: #1e40af;
+
+  --color-earth-brown-50: #f8fafc;
+  --color-earth-brown-100: #f1f5f9;
+  --color-earth-brown-200: #e2e8f0;
+  --color-earth-brown-300: #cbd5e1;
+  --color-earth-brown-400: #94a3b8;
+  --color-earth-brown-500: #64748b;
+  --color-earth-brown-600: #475569;
+  --color-earth-brown-700: #334155;
+  --color-earth-brown-800: #1e293b;
+  --color-earth-brown-900: #0f172a;
 
   @keyframes blob {
     0% { transform: translate(0px, 0px) scale(1); }
@@ -37,12 +66,12 @@
 }
 
 :root {
-  --background: var(--color-earth-beige-50);
-  --foreground: var(--color-earth-brown-900);
+  --background: #fefcf9;
+  --foreground: #0f172a;
 
-  --primary: var(--color-earth-sage-600);
-  --secondary: var(--color-earth-brown-500);
-  --accent: var(--color-earth-beige-300);
+  --primary: #2563eb;
+  --secondary: #1e293b;
+  --accent: #f4efe7;
 }
 
 body {
@@ -54,6 +83,7 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   font-weight: 600;
+  color: #0f172a;
 }
 
 .text-balance {
@@ -70,4 +100,19 @@ h1, h2, h3, h4, h5, h6 {
 
 .animation-delay-4000 {
   animation-delay: 4s;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.35s ease-out;
+}
+
+/* Smooth transition for theme colors & links */
+a, button {
+  transition-property: color, background-color, border-color, box-shadow, transform;
+  transition-duration: 200ms;
 }

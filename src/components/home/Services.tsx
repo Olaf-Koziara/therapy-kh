@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Heart, Brain, Users, CloudRain, Sparkles, Target } from "lucide-react";
 
 const services = [
@@ -22,7 +23,7 @@ const services = [
   {
     title: "Zaburzenia psychosomatyczne i odżywiania",
     description:
-      "Wsparcie w leczeniu zaburzeń psychosomatycznych, zaburzeń odżywiania oraz zwią­zanych z nimi trudności emocjonalnych.",
+      "Wsparcie w leczeniu zaburzeń psychosomatycznych, zaburzeń odżywiania oraz związanych z nimi trudności emocjonalnych.",
     icon: Brain,
   },
   {
@@ -41,54 +42,52 @@ const services = [
 
 const Services = () => {
   return (
-    <section id="oferta" className="py-24 bg-earth-beige-100">
-      <div className="max-w-7xl mx-auto px-6 text-center mb-16">
-        <span className="text-earth-sage-600 font-medium tracking-widest uppercase text-sm mb-4 block">
+    <section id="oferta" className="bg-slate-50 py-24">
+      <div className="mx-auto mb-16 max-w-7xl px-6 text-center">
+        <span className="mb-4 block text-sm font-semibold uppercase tracking-widest text-blue-600">
           Obszary wsparcia
         </span>
-        <h2 className="text-4xl md:text-5xl font-bold text-earth-brown-900 mb-6">
+        <h2 className="mb-6 text-4xl font-bold text-slate-900 md:text-5xl">
           W czym mogę Ci pomóc?
         </h2>
-        <p className="text-lg text-earth-brown-700 max-w-2xl mx-auto leading-relaxed">
-          Oferuję psychoterapię indywidualną i konsultacje dla osób borykających
-          się z wyzwaniami emocjonalnymi i życiowymi. Moim zadaniem jest
-          towarzyszyć Ci w drodze do zrozumienia ich przyczyn i odnalezienia
-          wewnętrznej równowagi.
+        <p className="mx-auto max-w-2xl text-lg leading-relaxed text-slate-600">
+          Rozumiem, z czym się zmagasz. Zapewniam profesjonalne wsparcie w
+          odnalezieniu Twojej wewnętrznej siły i spokoju.
         </p>
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="mx-auto grid max-w-7xl grid-cols-1 gap-8 px-6 md:grid-cols-2 lg:grid-cols-3">
         {services.map((service) => (
           <article
             key={service.title}
-            className="bg-white p-10 rounded-3xl shadow-sm hover:shadow-md transition-all border border-earth-beige-200 group"
+            className="group rounded-3xl border border-slate-200 bg-white p-10 shadow-sm transition-all hover:shadow-md"
           >
-            <div className="w-14 h-14 bg-earth-sage-50 text-earth-sage-600 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-earth-sage-600 group-hover:text-white transition-colors duration-500">
+            <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-blue-50 text-blue-600 transition-colors duration-500 group-hover:bg-blue-600 group-hover:text-white">
               <service.icon size={28} />
             </div>
-            <h3 className="text-xl font-bold text-earth-brown-800 mb-4">
+            <h3 className="mb-4 text-xl font-bold text-slate-800">
               {service.title}
             </h3>
-            <p className="text-earth-brown-600 leading-relaxed">
+            <p className="leading-relaxed text-slate-600">
               {service.description}
             </p>
           </article>
         ))}
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 mt-16 text-center">
-        <div className="bg-earth-sage-600/5 rounded-3xl p-8 md:p-12 border border-earth-sage-200">
-          <p className="text-earth-brown-800 text-lg mb-6 italic">
-            &ldquo;Psychoterapia to nie tylko leczenie zaburzeń, to przede wszystkim
-            proces odzyskiwania kontaktu z samym sobą.&rdquo;
+      <div className="mx-auto mt-16 max-w-7xl px-6 text-center">
+        <div className="rounded-3xl border border-blue-100 bg-blue-50/60 p-8 md:p-12">
+          <p className="mb-6 text-lg italic text-slate-800">
+            &ldquo;Psychoterapia to nie tylko leczenie zaburzeń, to przede
+            wszystkim proces odzyskiwania kontaktu z samym sobą.&rdquo;
           </p>
-          <a
-            href="#kontakt"
-            className="inline-flex items-center space-x-2 text-earth-sage-600 font-bold hover:text-earth-sage-700 transition-colors"
+          <Link
+            href="/kontakt"
+            className="inline-flex items-center space-x-2 font-bold text-blue-600 transition-colors hover:text-blue-700"
           >
             <span>Zarezerwuj termin konsultacji</span>
             <Target size={18} />
-          </a>
+          </Link>
         </div>
       </div>
     </section>

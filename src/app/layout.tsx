@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import FloatingContactCTA from "@/components/layout/FloatingContactCTA";
 import { siteName, siteUrl } from "@/lib/seo";
 
 const geistSans = Geist({
@@ -18,34 +19,35 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Psychoterapia Gestalt i terapia uzależnień Gdańsk | Kamila Helta",
+    default: "Psychoterapia, Terapia uzależnień, Konsultacje | Gdańsk, Chojnice, Online | Kamila Helta",
     template: "%s | Kamila Helta",
   },
   description:
-    "Psychoterapia Gestalt, terapia uzależnień i konsultacje online. Kamila Helta pomaga osobom w kryzysie, trudnościach emocjonalnych i relacyjnych w Gdańsku oraz online.",
+    "Psychoterapia, terapia uzależnień i konsultacje online. Kamila Helta pomaga osobom w kryzysie, trudnościach emocjonalnych i relacyjnych stacjonarnie w Gdańsku i Chojnicach oraz online.",
   keywords: [
     "psychoterapia Gdańsk",
-    "psychoterapeuta Gestalt Gdańsk",
-    "terapia uzależnień Gdańsk",
+    "psychoterapia Chojnice",
     "psychoterapia online",
+    "terapia uzależnień Gdańsk",
+    "terapia uzależnień Chojnice",
+    "konsultacje psychoterapeutyczne",
     "Kamila Helta",
-    "pomoc psychologiczna Gdańsk",
   ],
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    title: "Psychoterapia Gestalt i terapia uzależnień w Gdańsku",
+    title: "Psychoterapia, Terapia uzależnień, Konsultacje | Gdańsk, Chojnice, Online",
     description:
-      "Konsultacje psychoterapeutyczne w Gdańsku i online. Gestalt, terapia uzależnień, wsparcie w kryzysie, lęku, depresji i trudnościach relacyjnych.",
+      "Konsultacje psychoterapeutyczne i psychoterapia w Gdańsku, Chojnicach i online. Gestalt, terapia uzależnień, wsparcie w kryzysie, lęku, depresji i trudnościach relacyjnych.",
     url: siteUrl,
     siteName,
     images: [
       {
-        url: "/images/kamila-helta.jpg",
+        url: "/images/kamila-helta.jpeg",
         width: 368,
         height: 532,
-        alt: "Kamila Helta, psychoterapeutka Gestalt",
+        alt: "Kamila Helta, psychoterapeutka",
       },
     ],
     locale: "pl_PL",
@@ -53,10 +55,10 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Psychoterapia Gestalt i terapia uzależnień Gdańsk",
+    title: "Psychoterapia, Terapia uzależnień, Konsultacje | Gdańsk, Chojnice, Online",
     description:
-      "Kamila Helta - psychoterapia Gestalt, terapia uzależnień i konsultacje online.",
-    images: ["/images/kamila-helta.jpg"],
+      "Kamila Helta - psychoterapia, terapia uzależnień i konsultacje online (Gdańsk, Chojnice).",
+    images: ["/images/kamila-helta.jpeg"],
   },
   robots: {
     index: true,
@@ -72,10 +74,11 @@ export default function RootLayout({
   return (
     <html lang="pl" className="scroll-smooth">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased selection:bg-earth-sage-200 selection:text-earth-brown-900 font-sans`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased selection:bg-blue-100 selection:text-blue-900 font-sans min-h-screen flex flex-col bg-white text-slate-900`}
       >
         <Navbar />
-        {children}
+        <main className="flex-1">{children}</main>
+        <FloatingContactCTA />
         <Footer />
       </body>
     </html>

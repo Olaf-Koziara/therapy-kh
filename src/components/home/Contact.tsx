@@ -3,7 +3,16 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Mail, Phone, MapPin, Send } from "lucide-react";
+import {
+  Mail,
+  Phone,
+  MapPin,
+  Send,
+  Clock,
+  CreditCard,
+  Users,
+  CalendarCheck,
+} from "lucide-react";
 import { sendContactForm } from "@/app/actions";
 
 const Contact = () => {
@@ -70,34 +79,32 @@ const Contact = () => {
   };
 
   return (
-    <section id="kontakt" className="py-24 bg-white">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+    <section id="kontakt" className="bg-white py-24">
+      <div className="mx-auto max-w-7xl px-6">
+        <div className="grid grid-cols-1 gap-16 lg:grid-cols-2">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl font-bold text-earth-brown-900 mb-8">
+            <h2 className="mb-8 text-4xl font-bold text-slate-900">
               Zapraszam do kontaktu
             </h2>
-            <p className="text-lg text-earth-brown-700 mb-12">
+            <p className="mb-12 text-lg text-slate-600">
               Jeśli masz pytania lub chcesz umówić się na pierwszą konsultację,
               napisz do mnie lub zadzwoń. Odpowiem najszybciej, jak to możliwe.
             </p>
 
             <div className="space-y-8">
               <div className="flex items-start space-x-4">
-                <div className="w-12 h-12 bg-earth-beige-100 rounded-xl flex items-center justify-center text-earth-sage-600 flex-shrink-0">
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-blue-50 text-blue-600">
                   <Phone size={24} />
                 </div>
                 <div>
-                  <h4 className="text-earth-brown-800 font-bold mb-1">
-                    Telefon
-                  </h4>
+                  <h4 className="mb-1 font-bold text-slate-800">Telefon</h4>
                   <a
                     href="tel:889470294"
-                    className="text-xl text-earth-brown-700 hover:text-earth-sage-600 transition-colors"
+                    className="text-xl text-slate-700 transition-colors hover:text-blue-600"
                   >
                     889 470 294
                   </a>
@@ -105,14 +112,14 @@ const Contact = () => {
               </div>
 
               <div className="flex items-start space-x-4">
-                <div className="w-12 h-12 bg-earth-beige-100 rounded-xl flex items-center justify-center text-earth-sage-600 flex-shrink-0">
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-blue-50 text-blue-600">
                   <Mail size={24} />
                 </div>
                 <div>
-                  <h4 className="text-earth-brown-800 font-bold mb-1">Email</h4>
+                  <h4 className="mb-1 font-bold text-slate-800">Email</h4>
                   <a
                     href="mailto:kamila@helta.pl"
-                    className="text-xl text-earth-brown-700 hover:text-earth-sage-600 transition-colors"
+                    className="text-xl text-slate-700 transition-colors hover:text-blue-600"
                   >
                     kamila@helta.pl
                   </a>
@@ -120,18 +127,51 @@ const Contact = () => {
               </div>
 
               <div className="flex items-start space-x-4">
-                <div className="w-12 h-12 bg-earth-beige-100 rounded-xl flex items-center justify-center text-earth-sage-600 flex-shrink-0">
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-blue-50 text-blue-600">
                   <MapPin size={24} />
                 </div>
                 <div>
-                  <h4 className="text-earth-brown-800 font-bold mb-1">
-                    Lokalizacja
-                  </h4>
-                  <p className="text-xl text-earth-brown-700">
-                    Gdańsk i okolice, Bydgoszcz i okolice, psychoterapia on-line
-                    dla całego kraju
+                  <h4 className="mb-1 font-bold text-slate-800">Lokalizacja</h4>
+                  <p className="text-xl text-slate-700">
+                    Gdańsk, Chojnice (stacjonarnie) oraz psychoterapia online dla
+                    osób z całej Polski
                   </p>
                 </div>
+              </div>
+
+              <div className="mt-12 rounded-3xl border border-blue-100 bg-blue-50/60 p-8">
+                <h4 className="mb-6 text-xl font-bold text-slate-900">
+                  Ważne informacje organizacyjne
+                </h4>
+                <ul className="space-y-4">
+                  <li className="flex items-start gap-3 text-slate-700">
+                    <Clock className="mt-0.5 h-5 w-5 shrink-0 text-blue-600" />
+                    <span>
+                      <strong>Czas trwania sesji:</strong> 50 minut
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-3 text-slate-700">
+                    <CreditCard className="mt-0.5 h-5 w-5 shrink-0 text-blue-600" />
+                    <span>
+                      <strong>Koszt konsultacji:</strong> cena sesji podawana
+                      przy kontakcie (płatność gotówką lub przelewem)
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-3 text-slate-700">
+                    <Users className="mt-0.5 h-5 w-5 shrink-0 text-blue-600" />
+                    <span>
+                      <strong>Forma pracy:</strong> Pracuję z osobami dorosłymi
+                      w ramach terapii indywidualnej
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-3 text-slate-700">
+                    <CalendarCheck className="mt-0.5 h-5 w-5 shrink-0 text-blue-600" />
+                    <span>
+                      <strong>Odwoływanie sesji:</strong> Odwołanie spotkania
+                      jest bezpłatne do 24h przed terminem
+                    </span>
+                  </li>
+                </ul>
               </div>
             </div>
           </motion.div>
@@ -141,22 +181,23 @@ const Contact = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="bg-earth-beige-50 p-8 md:p-12 rounded-3xl border border-earth-beige-200 shadow-sm"
+            className="rounded-3xl border border-slate-200 bg-slate-50 p-8 shadow-sm md:p-12"
           >
             {submitted ? (
-              <div className="h-full flex flex-col items-center justify-center text-center py-12">
-                <div className="w-20 h-20 bg-earth-sage-100 text-earth-sage-600 rounded-full flex items-center justify-center mb-6">
+              <div className="flex h-full flex-col items-center justify-center py-12 text-center">
+                <div className="mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-blue-100 text-blue-600">
                   <Send size={32} />
                 </div>
-                <h3 className="text-2xl font-bold text-earth-brown-900 mb-4">
+                <h3 className="mb-4 text-2xl font-bold text-slate-900">
                   Wiadomość wysłana!
                 </h3>
-                <p className="text-earth-brown-700 mb-8">
-                  {statusMessage || "Dziękuję za kontakt. Skontaktuję się z Tobą wkrótce."}
+                <p className="mb-8 text-slate-600">
+                  {statusMessage ||
+                    "Dziękuję za kontakt. Skontaktuję się z Tobą wkrótce."}
                 </p>
                 <button
                   onClick={() => setSubmitted(false)}
-                  className="text-earth-sage-600 font-semibold hover:underline"
+                  className="font-semibold text-blue-600 hover:underline"
                 >
                   Wyślij kolejną wiadomość
                 </button>
@@ -186,7 +227,7 @@ const Contact = () => {
                 <div>
                   <label
                     htmlFor="name"
-                    className="block text-sm font-medium text-earth-brown-800 mb-2"
+                    className="mb-2 block text-sm font-medium text-slate-800"
                   >
                     Imię i Nazwisko
                   </label>
@@ -198,15 +239,15 @@ const Contact = () => {
                     onChange={handleChange}
                     required
                     autoComplete="name"
-                    className="w-full px-4 py-3 rounded-xl border border-earth-beige-300 focus:outline-none focus:ring-2 focus:ring-earth-sage-500 bg-white transition-all"
+                    className="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 transition-all focus:outline-none focus:ring-2 focus:ring-blue-500"
                     placeholder="Twoje imię..."
                   />
                 </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
                   <div>
                     <label
                       htmlFor="email"
-                      className="block text-sm font-medium text-earth-brown-800 mb-2"
+                      className="mb-2 block text-sm font-medium text-slate-800"
                     >
                       Email
                     </label>
@@ -218,16 +259,16 @@ const Contact = () => {
                       onChange={handleChange}
                       required
                       autoComplete="email"
-                      className="w-full px-4 py-3 rounded-xl border border-earth-beige-300 focus:outline-none focus:ring-2 focus:ring-earth-sage-500 bg-white transition-all"
+                      className="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 transition-all focus:outline-none focus:ring-2 focus:ring-blue-500"
                       placeholder="email@przyklad.pl"
                     />
                   </div>
                   <div>
                     <label
                       htmlFor="phone"
-                      className="block text-sm font-medium text-earth-brown-800 mb-2"
+                      className="mb-2 block text-sm font-medium text-slate-800"
                     >
-                      Telefon
+                      Telefon (opcjonalnie)
                     </label>
                     <input
                       type="tel"
@@ -236,7 +277,7 @@ const Contact = () => {
                       value={formState.phone}
                       onChange={handleChange}
                       autoComplete="tel"
-                      className="w-full px-4 py-3 rounded-xl border border-earth-beige-300 focus:outline-none focus:ring-2 focus:ring-earth-sage-500 bg-white transition-all"
+                      className="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 transition-all focus:outline-none focus:ring-2 focus:ring-blue-500"
                       placeholder="Numer telefonu..."
                     />
                   </div>
@@ -244,7 +285,7 @@ const Contact = () => {
                 <div>
                   <label
                     htmlFor="message"
-                    className="block text-sm font-medium text-earth-brown-800 mb-2"
+                    className="mb-2 block text-sm font-medium text-slate-800"
                   >
                     Wiadomość
                   </label>
@@ -255,11 +296,11 @@ const Contact = () => {
                     onChange={handleChange}
                     required
                     rows={5}
-                    className="w-full px-4 py-3 rounded-xl border border-earth-beige-300 focus:outline-none focus:ring-2 focus:ring-earth-sage-500 bg-white transition-all resize-none"
+                    className="w-full resize-none rounded-xl border border-slate-300 bg-white px-4 py-3 transition-all focus:outline-none focus:ring-2 focus:ring-blue-500"
                     placeholder="W czym mogę pomóc?"
                   />
                 </div>
-                <div className="flex items-start space-x-3 bg-earth-brown-50 p-4 rounded-lg border border-earth-brown-200">
+                <div className="flex items-start space-x-3 rounded-lg border border-slate-200 bg-slate-50 p-4">
                   <input
                     type="checkbox"
                     id="rodoConsent"
@@ -267,11 +308,11 @@ const Contact = () => {
                     checked={formState.rodoConsent}
                     onChange={handleChange}
                     required
-                    className="w-5 h-5 mt-1 flex-shrink-0 cursor-pointer rounded border-earth-beige-300 text-earth-sage-600 focus:ring-earth-sage-500"
+                    className="mt-1 h-5 w-5 shrink-0 cursor-pointer rounded border-slate-300 text-blue-600 focus:ring-blue-500"
                   />
                   <label
                     htmlFor="rodoConsent"
-                    className="text-xs text-earth-brown-700 leading-relaxed cursor-pointer"
+                    className="cursor-pointer text-xs leading-relaxed text-slate-700"
                   >
                     Wyrażam zgodę na przetwarzanie moich danych osobowych dla
                     potrzeb niezbędnych do realizacji procesu zapisu zgodnie z
@@ -282,7 +323,7 @@ const Contact = () => {
                     dyrektywy 95/46/WE (RODO). Zapoznałam/zapoznałem się z{" "}
                     <Link
                       href="/polityka-prywatnosci"
-                      className="font-semibold text-earth-sage-700 underline underline-offset-2 hover:text-earth-sage-600"
+                      className="font-semibold text-blue-700 underline underline-offset-2 hover:text-blue-600"
                     >
                       polityką prywatności
                     </Link>
@@ -292,7 +333,7 @@ const Contact = () => {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full py-4 bg-earth-sage-600 text-earth-beige-50 rounded-xl hover:bg-earth-sage-700 transition-all font-bold text-lg shadow-lg disabled:opacity-70 flex items-center justify-center space-x-2"
+                  className="flex w-full items-center justify-center space-x-2 rounded-xl bg-blue-600 py-4 text-lg font-bold text-white shadow-lg transition-all hover:bg-blue-700 disabled:opacity-70"
                 >
                   {isSubmitting ? (
                     <span className="inline-block animate-pulse">

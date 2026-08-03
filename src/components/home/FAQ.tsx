@@ -1,3 +1,5 @@
+import { ChevronDown } from "lucide-react";
+
 const faqs = [
   {
     question: "Jak wygląda pierwsza konsultacja psychoterapeutyczna?",
@@ -7,7 +9,7 @@ const faqs = [
   {
     question: "Czy prowadzisz psychoterapię online?",
     answer:
-      "Tak. Sesje online są dostępne dla osób z całej Polski. Ta forma sprawdza się szczególnie wtedy, gdy mieszkasz poza Gdańskiem, często podróżujesz lub potrzebujesz większej elastyczności.",
+      "Tak. Sesje online są dostępne dla osób z całej Polski. Ta forma sprawdza się szczególnie wtedy, gdy mieszkasz z dala od naszych gabinetów w Gdańsku czy Chojnicach, często podróżujesz lub potrzebujesz większej elastyczności.",
   },
   {
     question: "Dla kogo jest psychoterapia Gestalt?",
@@ -28,13 +30,13 @@ const faqs = [
 
 const FAQ = () => {
   return (
-    <section id="faq" className="bg-earth-beige-50 py-24">
+    <section id="faq" className="bg-slate-50 py-24">
       <div className="mx-auto max-w-5xl px-6">
         <div className="mb-12 text-center">
-          <span className="mb-4 block text-sm font-medium uppercase tracking-[0.2em] text-earth-sage-600">
+          <span className="mb-4 block text-sm font-semibold uppercase tracking-[0.2em] text-blue-600">
             Najczęstsze pytania
           </span>
-          <h2 className="text-4xl font-bold text-earth-brown-900 md:text-5xl">
+          <h2 className="text-4xl font-bold text-slate-900 md:text-5xl">
             Zanim umówisz pierwszą konsultację
           </h2>
         </div>
@@ -43,14 +45,15 @@ const FAQ = () => {
           {faqs.map((faq) => (
             <details
               key={faq.question}
-              className="group rounded-2xl border border-earth-beige-200 bg-white p-6 shadow-sm"
+              className="group rounded-2xl border border-slate-200 bg-white shadow-sm transition-all duration-300 hover:border-slate-300 hover:bg-slate-50/50 hover:shadow-md"
             >
-              <summary className="cursor-pointer list-none text-lg font-bold text-earth-brown-900">
-                {faq.question}
+              <summary className="flex w-full cursor-pointer list-none items-center justify-between p-6 text-lg font-bold text-slate-900 outline-none">
+                <span className="pr-4">{faq.question}</span>
+                <ChevronDown className="h-5 w-5 shrink-0 text-slate-500 transition-transform duration-300 group-open:rotate-180" />
               </summary>
-              <p className="mt-4 leading-relaxed text-earth-brown-700">
-                {faq.answer}
-              </p>
+              <div className="px-6 pb-6">
+                <p className="leading-relaxed text-slate-600">{faq.answer}</p>
+              </div>
             </details>
           ))}
         </div>

@@ -1,27 +1,44 @@
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
+
 const Gestalt = () => {
   return (
-    <section id="gestalt" className="py-24 bg-earth-sage-600 text-earth-beige-50">
-      <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+    <section id="gestalt" className="bg-blue-600 py-24 text-white">
+      <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-16 px-6 md:grid-cols-2">
         <div className="relative order-2 md:order-1">
-          <div className="aspect-square bg-earth-sage-700/50 rounded-full flex items-center justify-center p-12 border border-earth-sage-400/30">
-             <div className="text-center">
-                <h3 className="text-5xl font-serif italic mb-4 text-white/60 md:text-6xl">&ldquo;Tu i teraz&rdquo;</h3>
-                <p className="text-white/80">Klucz do świadomej obecności</p>
-             </div>
+          <div className="flex aspect-square items-center justify-center rounded-full border border-blue-400/30 bg-blue-700/50 p-12">
+            <div className="text-center">
+              <h3 className="mb-4 font-serif text-5xl italic text-white/60 md:text-6xl">
+                &ldquo;Tu i teraz&rdquo;
+              </h3>
+              <p className="text-white/80">Klucz do świadomej obecności</p>
+            </div>
           </div>
         </div>
 
         <div className="order-1 md:order-2">
-          <h2 className="text-4xl font-bold mb-8 text-white">Nurt Gestalt</h2>
-          <p className="text-lg text-white/90 leading-relaxed mb-6">
-            Psychoterapia Gestalt to holistyczne podejście do człowieka. Postrzega nas jako niepodzielną całość, łącząc emocje, intelekt, ciało i wartości.
+          <h2 className="mb-8 text-4xl font-bold text-white">Nurt Gestalt</h2>
+          <p className="mb-6 text-lg leading-relaxed text-white/90">
+            Psychoterapia Gestalt to holistyczne podejście do człowieka.
+            Postrzega nas jako niepodzielną całość, łącząc emocje, intelekt,
+            ciało i wartości.
           </p>
-          <p className="text-lg text-white/90 leading-relaxed mb-8">
-            W procesie terapeutycznym skupiamy się na poszerzaniu świadomości. Pomaga to zrozumieć, co dzieje się z nami w teraźniejszości i jak nasze wzorce z przeszłości wpływają na obecne relacje i wybory.
+          <p className="mb-8 text-lg leading-relaxed text-white/90">
+            W procesie terapeutycznym skupiamy się na poszerzaniu świadomości.
+            Pomaga to zrozumieć, co dzieje się z nami w teraźniejszości i jak
+            nasze wzorce z przeszłości wpływają na obecne relacje i wybory.
           </p>
-          <blockquote className="border-l-4 border-earth-beige-300 pl-6 italic text-xl text-white/95 mb-8">
-            &ldquo;To spotkanie dwojga ludzi, oparte na otwartym, szczerym i autentycznym kontakcie.&rdquo;
+          <blockquote className="mb-8 border-l-4 border-blue-200 pl-6 text-xl italic text-white/95">
+            &ldquo;To spotkanie dwojga ludzi, oparte na otwartym, szczerym i
+            autentycznym kontakcie.&rdquo;
           </blockquote>
+          <Link
+            href="/psychoterapia-gestalt"
+            className="inline-flex items-center gap-2 font-bold text-white underline-offset-4 hover:underline"
+          >
+            Więcej o psychoterapii Gestalt
+            <ArrowRight size={18} />
+          </Link>
         </div>
       </div>
     </section>

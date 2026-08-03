@@ -14,12 +14,12 @@ export const professionalServiceJsonLd = () => ({
   email: contactEmail,
   areaServed: [
     { "@type": "City", name: "Gdańsk" },
-    { "@type": "City", name: "Bydgoszcz" },
+    { "@type": "City", name: "Chojnice" },
     { "@type": "Country", name: "Polska" },
   ],
   address: {
     "@type": "PostalAddress",
-    addressLocality: "Gdańsk",
+    addressLocality: "Gdańsk / Chojnice",
     addressCountry: "PL",
   },
   founder: {
@@ -28,9 +28,9 @@ export const professionalServiceJsonLd = () => ({
     jobTitle: "Psychoterapeutka Gestalt, specjalistka terapii uzależnień",
   },
   serviceType: [
-    "Psychoterapia Gestalt",
-    "Terapia uzależnień",
     "Psychoterapia online",
+    "Psychoterapia",
+    "Psychoterapia uzależnień",
     "Konsultacje psychoterapeutyczne",
   ],
   sameAs: [],

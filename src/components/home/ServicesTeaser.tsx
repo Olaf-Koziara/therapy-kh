@@ -1,0 +1,92 @@
+import Link from "next/link";
+import { ArrowRight, MessageCircle, Clock3, HandHeart } from "lucide-react";
+import { landingPages } from "@/lib/landing-pages";
+
+const ServicesTeaser = () => {
+  return (
+    <section className="bg-slate-50 py-20 px-6">
+      <div className="mx-auto max-w-7xl">
+        <div className="mb-12 text-center">
+          <span className="mb-3 block text-sm font-semibold uppercase tracking-widest text-blue-600">
+            Oferta
+          </span>
+          <h2 className="mb-4 text-3xl font-bold text-slate-900 sm:text-4xl">
+            W czym mogę Ci pomóc?
+          </h2>
+          <p className="mx-auto max-w-2xl text-lg text-slate-600">
+            Profesjonalne wsparcie w kryzysie, lęku, uzależnieniu i pracy nad
+            sobą – stacjonarnie oraz online.
+          </p>
+        </div>
+
+        <div className="mb-10 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          {landingPages.map((page) => {
+            const Icon = page.icon;
+            return (
+              <Link
+                key={page.slug}
+                href={`/${page.slug}`}
+                className="group rounded-2xl border border-slate-200 bg-white p-6 transition-all hover:border-blue-200 hover:shadow-md"
+              >
+                <div className="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-xl bg-blue-50 text-blue-600 transition-colors group-hover:bg-blue-600 group-hover:text-white">
+                  <Icon size={22} />
+                </div>
+                <h3 className="mb-2 font-bold text-slate-900">{page.title}</h3>
+                <p className="text-sm leading-relaxed text-slate-600 line-clamp-3">
+                  {page.description}
+                </p>
+              </Link>
+            );
+          })}
+        </div>
+
+        <div className="text-center">
+          <Link
+            href="/oferta"
+            className="inline-flex items-center gap-2 font-bold text-blue-600 transition-colors hover:text-blue-700"
+          >
+            Pełna oferta i informacje organizacyjne
+            <ArrowRight size={18} />
+          </Link>
+        </div>
+
+        <div className="mt-12 rounded-3xl border border-blue-100 bg-blue-50/50 p-6 sm:p-8">
+          <h3 className="text-center text-xl font-bold text-slate-900">
+            Jak wygląda pierwsza konsultacja?
+          </h3>
+          <div className="mt-6 grid gap-4 md:grid-cols-3">
+            <article className="rounded-2xl bg-white p-5">
+              <p className="mb-2 inline-flex items-center gap-2 text-sm font-semibold text-slate-900">
+                <MessageCircle size={16} className="text-blue-600" />
+                Kontakt
+              </p>
+              <p className="text-sm text-slate-600">
+                Napisz lub zadzwoń. Odpowiadam i proponuję możliwe terminy.
+              </p>
+            </article>
+            <article className="rounded-2xl bg-white p-5">
+              <p className="mb-2 inline-flex items-center gap-2 text-sm font-semibold text-slate-900">
+                <Clock3 size={16} className="text-blue-600" />
+                Ustalenie formy
+              </p>
+              <p className="text-sm text-slate-600">
+                Wspólnie wybieramy: Gdańsk, Chojnice albo spotkanie online.
+              </p>
+            </article>
+            <article className="rounded-2xl bg-white p-5">
+              <p className="mb-2 inline-flex items-center gap-2 text-sm font-semibold text-slate-900">
+                <HandHeart size={16} className="text-blue-600" />
+                Pierwsze spotkanie
+              </p>
+              <p className="text-sm text-slate-600">
+                Omawiamy potrzeby i sprawdzamy, jaka forma pomocy będzie najlepsza.
+              </p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default ServicesTeaser;

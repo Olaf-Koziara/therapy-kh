@@ -1,82 +1,119 @@
 import Image from "next/image";
-import { Mail, Phone } from "lucide-react";
+import Link from "next/link";
+import {
+  Phone,
+  CalendarCheck,
+  ShieldCheck,
+  MapPin,
+  MessageCircle,
+  HandHeart,
+  Clock3,
+} from "lucide-react";
 
 const Hero = () => {
   return (
-    <section className="relative flex min-h-[90vh] items-center justify-center overflow-hidden bg-earth-beige-50 pt-20">
-      <div className="absolute right-0 top-0 hidden h-full w-1/3 bg-earth-sage-50/50 md:block" />
+    <section className="relative flex min-h-[85vh] items-center justify-center overflow-hidden bg-gradient-to-b from-[#f5f0e8]/65 via-[#fefcf9] to-white pt-28 pb-16">
+      <div className="absolute right-0 top-0 hidden h-full w-1/3 bg-[#f1ebdf]/50 lg:block -z-10" />
 
-      <div className="relative mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 px-6 py-16 md:grid-cols-2 lg:py-20">
+      <div className="relative mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 px-6 lg:grid-cols-2">
         <div>
-          <span className="mb-4 inline-block text-sm font-medium uppercase tracking-[0.2em] text-earth-sage-600">
-            Gabinet psychoterapii Gestalt w Gdańsku
-          </span>
-          <h1 className="mb-8 text-4xl font-bold leading-[1.08] text-earth-brown-900 sm:text-5xl lg:text-7xl">
-            Psychoterapia Gestalt i terapia uzależnień w Gdańsku oraz online
-          </h1>
-          <p className="mb-8 max-w-xl text-xl leading-relaxed text-earth-brown-700">
-            Nazywam się Kamila Helta. Pomagam osobom w kryzysie, w trudnościach
-            emocjonalnych, relacyjnych i związanych z uzależnieniami odzyskać
-            spokój, kontakt ze sobą i większą świadomość.
-          </p>
-          <div className="mb-8 grid gap-3 text-sm text-earth-brown-700 sm:grid-cols-3">
-            <div className="rounded-2xl border border-earth-beige-200 bg-white/70 p-4">
-              <strong className="block text-earth-brown-900">Od 2009 roku</strong>
-              doświadczenia w pomocy psychologicznej
-            </div>
-            <div className="rounded-2xl border border-earth-beige-200 bg-white/70 p-4">
-              <strong className="block text-earth-brown-900">Certyfikaty</strong>
-              Gestalt EAGT i terapia uzależnień
-            </div>
-            <div className="rounded-2xl border border-earth-beige-200 bg-white/70 p-4">
-              <strong className="block text-earth-brown-900">Gdańsk i online</strong>
-              konsultacje dla osób z całej Polski
-            </div>
+          <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-blue-200 bg-blue-50 px-4 py-1.5 text-xs sm:text-sm font-semibold text-blue-700 shadow-sm">
+            <MapPin size={14} className="text-blue-600 shrink-0" />
+            <span>Gdańsk • Chojnice • Psychoterapia Online</span>
           </div>
-          <div className="flex flex-col gap-4 sm:flex-row">
-            <a
-              href="#kontakt"
-              className="rounded-full bg-earth-sage-600 px-8 py-4 text-center font-bold text-earth-beige-50 shadow-lg transition-all hover:bg-earth-sage-700 hover:shadow-xl"
+
+          <h1 className="mb-6 text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.1] text-slate-900">
+            <span className="sr-only">Psychoterapia, psychoterapia uzależnień i konsultacje w Gdańsku, Chojnicach oraz online</span>
+            Nie musisz przez to przechodzić sama/sam. <br />
+            <span className="text-blue-600">Wspólnie znajdziemy bezpieczny kierunek.</span>
+          </h1>
+
+          <p className="mb-8 max-w-xl text-lg sm:text-xl leading-relaxed text-slate-600 font-normal">
+            Pomagam osobom dorosłym w kryzysie, przeciążeniu emocjonalnym,
+            lęku i trudnościach relacyjnych. Pracuję w atmosferze akceptacji,
+            zaufania i jasnych zasad współpracy.
+          </p>
+
+          <div className="flex flex-col sm:flex-row gap-4">
+            <Link
+              href="/kontakt"
+              className="inline-flex items-center justify-center gap-2 rounded-2xl bg-blue-600 px-8 py-4 text-center font-bold text-white shadow-lg shadow-blue-600/25 transition-all hover:bg-blue-700 hover:shadow-xl transform hover:-translate-y-0.5"
             >
-              Umów spotkanie
-            </a>
+              <CalendarCheck size={20} />
+              <span>Umów pierwszą konsultację</span>
+            </Link>
+            
             <a
               href="tel:889470294"
-              className="inline-flex items-center justify-center gap-2 rounded-full border-2 border-earth-brown-200 px-8 py-4 text-center font-bold text-earth-brown-800 transition-all hover:border-earth-sage-600 hover:text-earth-sage-600"
+              className="inline-flex items-center justify-center gap-2 rounded-2xl border-2 border-slate-200 bg-white px-7 py-4 text-center font-bold text-slate-800 transition-all hover:border-blue-600 hover:text-blue-600 shadow-sm hover:shadow-md"
             >
-              <Phone size={18} />
-              Zadzwoń
+              <Phone size={18} className="text-blue-600" />
+              <span>Zadzwoń: 889 470 294</span>
             </a>
-            <a
-              href="mailto:kamila@helta.pl"
-              className="inline-flex items-center justify-center gap-2 rounded-full border-2 border-earth-brown-200 px-8 py-4 text-center font-bold text-earth-brown-800 transition-all hover:border-earth-sage-600 hover:text-earth-sage-600"
-            >
-              <Mail size={18} />
-              Napisz
-            </a>
+          </div>
+
+          <div className="mt-8 grid gap-3 sm:grid-cols-3">
+            <div className="rounded-xl border border-[#e9dfcf] bg-[#fdf8f0] p-4">
+              <p className="mb-2 inline-flex items-center gap-2 text-sm font-semibold text-slate-800">
+                <MessageCircle size={16} className="text-blue-600" />
+                Krok 1
+              </p>
+              <p className="text-sm leading-relaxed text-slate-600">
+                Kontakt telefoniczny lub formularz.
+              </p>
+            </div>
+            <div className="rounded-xl border border-[#e9dfcf] bg-[#fdf8f0] p-4">
+              <p className="mb-2 inline-flex items-center gap-2 text-sm font-semibold text-slate-800">
+                <Clock3 size={16} className="text-blue-600" />
+                Krok 2
+              </p>
+              <p className="text-sm leading-relaxed text-slate-600">
+                Ustalamy termin i formę spotkania.
+              </p>
+            </div>
+            <div className="rounded-xl border border-[#e9dfcf] bg-[#fdf8f0] p-4">
+              <p className="mb-2 inline-flex items-center gap-2 text-sm font-semibold text-slate-800">
+                <HandHeart size={16} className="text-blue-600" />
+                Krok 3
+              </p>
+              <p className="text-sm leading-relaxed text-slate-600">
+                Pierwsza konsultacja i wspólna decyzja o dalszej pracy.
+              </p>
+            </div>
+          </div>
+
+          <div className="mt-10 flex items-center gap-6 text-xs sm:text-sm text-slate-500 border-t border-slate-100 pt-6">
+            <div className="flex items-center gap-2">
+              <ShieldCheck size={18} className="text-blue-600 shrink-0" />
+              <span>Certyfikat EAGT & Superwizja</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-blue-600" />
+              <span>Doświadczenie od 2009 r.</span>
+            </div>
           </div>
         </div>
 
         <div className="relative">
-          <div className="absolute -inset-2 rounded-[2rem] border border-earth-sage-200 sm:-inset-4 sm:rounded-[2.5rem]" />
+          <div className="absolute -inset-3 rounded-[2.5rem] border-2 border-blue-100/80 -z-10" />
 
-          <div className="relative aspect-[4/5] overflow-hidden rounded-3xl bg-earth-brown-100 shadow-2xl">
+          <div className="relative aspect-[4/5] overflow-hidden rounded-3xl bg-slate-100 shadow-2xl border border-slate-200/60">
             <Image
-              src="/images/kamila-helta.jpg"
+              src="/images/kamila-helta.jpeg"
               alt="Kamila Helta, psychoterapeutka Gestalt i specjalistka terapii uzależnień"
               fill
               priority
-              sizes="(min-width: 768px) 45vw, 100vw"
+              sizes="(min-width: 1024px) 45vw, 100vw"
               className="object-cover"
             />
-            <div className="absolute inset-0 bg-earth-brown-900/10 mix-blend-multiply" aria-hidden="true" />
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 via-transparent to-transparent" aria-hidden="true" />
           </div>
 
-          <div className="absolute -bottom-8 left-4 hidden max-w-xs rounded-2xl border border-earth-beige-100 bg-white p-8 shadow-xl lg:block">
-            <p className="font-medium italic leading-relaxed text-earth-brown-800">
-              &ldquo;Psychoterapia to wyjątkowe spotkanie dwojga ludzi, oparte na
-              autentycznym kontakcie.&rdquo;
+          <div className="absolute -bottom-6 left-4 right-4 sm:left-6 sm:right-auto sm:max-w-xs rounded-2xl border border-blue-100 bg-white/95 backdrop-blur-md p-6 shadow-xl">
+            <p className="font-medium italic leading-relaxed text-slate-800 text-sm">
+              &ldquo;Psychoterapia to wyjątkowe spotkanie dwojga ludzi, oparte na autentycznym kontakcie, szacunku i uważności.&rdquo;
             </p>
+            <p className="mt-2 text-xs font-bold text-blue-600">— Kamila Helta</p>
           </div>
         </div>
       </div>
