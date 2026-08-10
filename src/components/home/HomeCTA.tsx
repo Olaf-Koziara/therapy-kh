@@ -6,12 +6,12 @@ const HomeCTA = () => {
     <section className="bg-gradient-to-b from-[#f7f1e8] to-white py-20 px-6">
       <div className="mx-auto max-w-3xl text-center">
         <h2 className="mb-4 text-3xl font-bold text-slate-900 sm:text-4xl">
-          Możesz zacząć od jednego spokojnego kroku.
+          Jeśli chcesz, możemy zacząć od spotkania.
         </h2>
         <p className="mb-8 text-lg text-slate-600">
-          Napisz lub zadzwoń. Wspólnie ustalimy dogodny termin konsultacji w
-          Gdańsku, Chojnicach albo online i omówimy, czego teraz najbardziej
-          potrzebujesz.
+          Pierwsza konsultacja jest przestrzenią, w której możesz opowiedzieć o
+          tym, z czym przychodzisz, zadać pytania i sprawdzić, czy ten sposób
+          pracy jest dla Ciebie odpowiedni.
         </p>
         <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
           <Link

@@ -4,8 +4,9 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, TreeDeciduous, CalendarCheck, Phone } from 'lucide-react';
+import { Menu, X, TreeDeciduous, CalendarCheck, Phone, ExternalLink } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { ZnanyLekarzIcon } from '@/components/icons/ZnanyLekarzIcon';
 
 const navItems = [
   { name: 'Start', href: '/' },
@@ -69,7 +70,18 @@ const Navbar = () => {
         </div>
 
         {/* Quick Access CTA Button */}
-        <div className="hidden sm:flex items-center space-x-4">
+        <div className="hidden sm:flex items-center space-x-3">
+          <a
+            href="https://www.znanylekarz.pl/kamila-helta/psychoterapeuta/chojnice"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-teal-50 hover:bg-teal-100 border border-teal-200/80 text-teal-800 text-xs font-semibold transition-all hover:shadow-xs group"
+            title="Zobacz profil na ZnanyLekarz.pl"
+          >
+            <ZnanyLekarzIcon size={18} className="shrink-0 group-hover:scale-105 transition-transform" />
+            <span className="hidden md:inline">ZnanyLekarz</span>
+            <ExternalLink size={12} className="text-teal-600 opacity-75" />
+          </a>
           <a
             href="tel:889470294"
             className="hidden xl:flex items-center gap-1.5 text-sm font-semibold text-slate-700 hover:text-blue-600 transition-colors"
@@ -87,10 +99,19 @@ const Navbar = () => {
         </div>
 
         {/* Mobile Menu Button */}
-        <div className="lg:hidden flex items-center gap-3">
+        <div className="lg:hidden flex items-center gap-2.5">
+          <a
+            href="https://www.znanylekarz.pl/kamila-helta/psychoterapeuta/chojnice"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="sm:hidden inline-flex items-center gap-1 px-2.5 py-1.5 rounded-full bg-teal-50 border border-teal-200 text-teal-800 text-xs font-semibold"
+            aria-label="Profil ZnanyLekarz"
+          >
+            <ZnanyLekarzIcon size={16} />
+          </a>
           <Link
             href="/kontakt"
-            className="sm:hidden bg-blue-600 text-white text-xs font-bold py-2 px-3.5 rounded-full shadow-sm"
+            className="sm:hidden bg-blue-600 text-white text-xs font-bold py-2 px-3 rounded-full shadow-sm"
           >
             Kontakt
           </Link>
@@ -132,6 +153,17 @@ const Navbar = () => {
                 );
               })}
               <div className="pt-2 flex flex-col gap-3">
+                <a
+                  href="https://www.znanylekarz.pl/kamila-helta/psychoterapeuta/chojnice"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => setIsOpen(false)}
+                  className="w-full text-center border border-teal-200 bg-teal-50 hover:bg-teal-100 text-teal-800 font-semibold py-2.5 rounded-xl flex items-center justify-center gap-2 text-sm transition-colors"
+                >
+                  <ZnanyLekarzIcon size={20} />
+                  <span>Profil na ZnanyLekarz.pl</span>
+                  <ExternalLink size={14} className="text-teal-600" />
+                </a>
                 <Link
                   href="/kontakt"
                   onClick={() => setIsOpen(false)}

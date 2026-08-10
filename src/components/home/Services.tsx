@@ -3,39 +3,39 @@ import { Heart, Brain, Users, CloudRain, Sparkles, Target } from "lucide-react";
 
 const services = [
   {
-    title: "Zaburzenia nastroju i depresja",
+    title: "Obniżony nastrój i depresja",
     description:
-      "Wsparcie w przezwyciężaniu depresji, smutku i zaburzeń nastroju. Praca nad przywróceniem równowagi emocjonalnej.",
+      "Przyglądanie się doświadczeniu smutku, pustki, wycofania, utraty energii lub sensu oraz temu, jak przeżywasz siebie i swoje relacje.",
     icon: Heart,
   },
   {
-    title: "Zaburzenia i stany lękowe",
+    title: "Lęk, niepokój i napięcie",
     description:
-      "Leczenie lęku, paniki i niepokoju. Nauczenie praktyk radzenia sobie z objawami i przywrócenie poczucia bezpieczeństwa.",
+      "Wspólne poznawanie tego, jak doświadczasz lęku — w emocjach, myślach i ciele. Przyglądanie się temu, kiedy się pojawia i czego możesz wówczas potrzebować.",
     icon: CloudRain,
   },
   {
-    title: "Nadmierny stres i wypalenie",
+    title: "Przeciążenie i wypalenie",
     description:
-      "Praca nad zarządzaniem stresem, wypaleniem zawodowym i napięciem emocjonalnym.",
+      "Zatrzymanie się przy doświadczeniu zmęczenia, napięcia i przeciążenia. Rozpoznawanie własnych potrzeb i granic oraz sposobu, w jaki pozostajesz w kontakcie ze sobą.",
     icon: Target,
   },
   {
-    title: "Zaburzenia psychosomatyczne i odżywiania",
+    title: "Ciało i trudności psychosomatyczne",
     description:
-      "Wsparcie w leczeniu zaburzeń psychosomatycznych, zaburzeń odżywiania oraz związanych z nimi trudności emocjonalnych.",
+      "Przyglądanie się temu, jak przeżywane doświadczenia znajdują wyraz w ciele oraz co pojawiające się sygnały mogą mówić o Twoim aktualnym sposobie funkcjonowania.",
     icon: Brain,
   },
   {
-    title: "Problemy relacyjne",
+    title: "Trudności w relacjach",
     description:
-      "Trudności w bliskich relacjach z partnerem, rodziną, przyjaciółmi i w środowisku pracy. Praca nad komunikacją i więziami.",
+      "Przyglądanie się temu, jak tworzysz kontakt z innymi, czego potrzebujesz w relacjach, jak doświadczasz bliskości i dystansu oraz w jaki sposób rozpoznajesz i stawiasz własne granice.",
     icon: Users,
   },
   {
-    title: "Kryzys życiowy i trauma",
+    title: "Kryzys, strata i trudne doświadczenia",
     description:
-      "Wsparcie w trudnych momentach: rozstania, żałoba, doświadczenia przemocy, traumy czy nagłe wypadki losowe.",
+      "Towarzyszenie w doświadczeniu rozstania, żałoby, przemocy, nagłych zmian i innych trudnych sytuacji — z uważnością na to, co przeżywasz i czego potrzebujesz.",
     icon: Sparkles,
   },
 ];
@@ -48,11 +48,13 @@ const Services = () => {
           Obszary wsparcia
         </span>
         <h2 className="mb-6 text-4xl font-bold text-slate-900 md:text-5xl">
-          W czym mogę Ci pomóc?
+          Z czym możesz przyjść?
         </h2>
         <p className="mx-auto max-w-2xl text-lg leading-relaxed text-slate-600">
-          Rozumiem, z czym się zmagasz. Zapewniam profesjonalne wsparcie w
-          odnalezieniu Twojej wewnętrznej siły i spokoju.
+          Do psychoterapii możesz przyjść zarówno wtedy, gdy doświadczasz
+          konkretnej trudności, jak i wtedy, gdy trudno Ci jeszcze nazwać to,
+          co się z Tobą dzieje. Wspólnie będziemy przyglądać się Twojemu
+          doświadczeniu, relacjom oraz temu, czego potrzebujesz.
         </p>
       </div>
 

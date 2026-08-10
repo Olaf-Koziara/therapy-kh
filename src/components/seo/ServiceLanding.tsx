@@ -119,7 +119,7 @@ const ServiceLanding = ({ page }: ServiceLandingProps) => {
                 Krok 3: Pierwsze spotkanie
               </p>
               <p className="text-sm leading-relaxed text-slate-600">
-                Omawiamy potrzeby i wspólnie ustalamy najlepszy kierunek pracy.
+                Okazja do poznania tego, z czym przychodzisz, omówienia zasad współpracy i sprawdzenia, czy ta forma pracy odpowiada Twoim potrzebom.
               </p>
             </article>
           </div>

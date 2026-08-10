@@ -28,17 +28,23 @@ const About = () => {
               O mnie i Kwalifikacje
             </span>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 text-slate-900 leading-tight">
-              Twoje bezpieczne miejsce na drodze do siebie
+              Spotkanie, relacja, doświadczenie
             </h2>
             
             <p className="text-base sm:text-lg text-slate-700 leading-relaxed mb-5">
               Jestem certyfikowaną psychoterapeutką Gestalt, certyfikowaną specjalistką psychoterapii uzależnień oraz pedagogiem ze specjalnością resocjalizacja.
             </p>
             <p className="text-base sm:text-lg text-slate-700 leading-relaxed mb-5">
-              Profesjonalną pomocą i psychoterapią zajmuję się od 2009 roku. Posiadam doświadczenie kliniczne zdobyte m.in. w stacjonarnych krótkoterminowych i długoterminowych ośrodkach leczenia uzależnień, gminnych punktach konsultacyjnych oraz w pracy gabinetowej w Gdańsku i Chojnicach.
+              Profesjonalną pomocą i psychoterapią zajmuję się od 2009 roku. Doświadczenie kliniczne zdobywałam m.in. w stacjonarnych krótko- i długoterminowych ośrodkach leczenia uzależnień, punktach konsultacyjnych oraz w pracy gabinetowej.
+            </p>
+            <p className="text-base sm:text-lg text-slate-700 leading-relaxed mb-5">
+              W terapii ważne jest dla mnie tworzenie relacji, w której możesz zatrzymać się przy swoim doświadczeniu i przyglądać się temu, co dzieje się w Tobie — w kontakcie ze mną, z innymi oraz ze sobą.
+            </p>
+            <p className="text-base sm:text-lg text-slate-700 leading-relaxed mb-5">
+              Pracuję z uważnością na emocje, ciało, potrzeby i granice. Nie proponuję gotowych odpowiedzi. Wspólnie możemy odkrywać, jak funkcjonujesz, czego potrzebujesz i jakie możliwości wyboru stają się dla Ciebie dostępne.
             </p>
             <p className="text-base sm:text-lg text-slate-700 leading-relaxed mb-8">
-              Wierzę, że każda zmiana zaczyna się od poczucia bezpieczeństwa. W moim gabinecie znajdziesz przestrzeń opartą na autentycznym kontakcie, empatii i poszanowaniu Twoich granic – bez oceniania i presji.
+              Podstawą naszej pracy są autentyczny kontakt, poufność, szacunek oraz poszanowanie Twojego tempa i granic.
             </p>
 
             {/* Quick credentials grid */}

@@ -19,19 +19,19 @@ const Hero = () => {
         <div>
           <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-blue-200 bg-blue-50 px-4 py-1.5 text-xs sm:text-sm font-semibold text-blue-700 shadow-sm">
             <MapPin size={14} className="text-blue-600 shrink-0" />
-            <span>Gdańsk • Chojnice • Psychoterapia Online</span>
+            <span>GABINET PSYCHOTERAPII W GDAŃSKU</span>
           </div>
 
           <h1 className="mb-6 text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.1] text-slate-900">
-            <span className="sr-only">Psychoterapia, psychoterapia uzależnień i konsultacje w Gdańsku, Chojnicach oraz online</span>
-            Nie musisz przez to przechodzić sama/sam. <br />
-            <span className="text-blue-600">Wspólnie znajdziemy bezpieczny kierunek.</span>
+            <span className="sr-only">Gabinet Psychoterapii w Gdańsku - Kamila Helta</span>
+            Zatrzymaj się. <br />
+            <span className="text-blue-600">Bądź bliżej siebie.</span>
           </h1>
 
           <p className="mb-8 max-w-xl text-lg sm:text-xl leading-relaxed text-slate-600 font-normal">
-            Pomagam osobom dorosłym w kryzysie, przeciążeniu emocjonalnym,
-            lęku i trudnościach relacyjnych. Pracuję w atmosferze akceptacji,
-            zaufania i jasnych zasad współpracy.
+            Jestem tu, by Ci towarzyszyć. W bezpiecznej i pełnej akceptacji
+            przestrzeni możesz przyglądać się temu, czego doświadczasz, lepiej
+            rozpoznawać swoje potrzeby i odkrywać, co jest dla Ciebie ważne.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4">
@@ -40,7 +40,7 @@ const Hero = () => {
               className="inline-flex items-center justify-center gap-2 rounded-2xl bg-blue-600 px-8 py-4 text-center font-bold text-white shadow-lg shadow-blue-600/25 transition-all hover:bg-blue-700 hover:shadow-xl transform hover:-translate-y-0.5"
             >
               <CalendarCheck size={20} />
-              <span>Umów pierwszą konsultację</span>
+              <span>Umów konsultację</span>
             </Link>
             
             <a
@@ -77,7 +77,7 @@ const Hero = () => {
                 Krok 3
               </p>
               <p className="text-sm leading-relaxed text-slate-600">
-                Pierwsza konsultacja i wspólna decyzja o dalszej pracy.
+                Pierwsza konsultacja i sprawdzanie, czy ta forma pracy odpowiada Twoim potrzebom.
               </p>
             </div>
           </div>

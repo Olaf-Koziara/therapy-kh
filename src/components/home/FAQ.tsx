@@ -4,17 +4,22 @@ const faqs = [
   {
     question: "Jak wygląda pierwsza konsultacja psychoterapeutyczna?",
     answer:
-      "Pierwsze spotkanie służy poznaniu sytuacji, potrzeb i oczekiwań. To także czas na pytania o zasady współpracy, poufność, częstotliwość sesji i możliwe kierunki dalszej pracy.",
+      "Pierwsze spotkanie jest okazją do poznania tego, z czym przychodzisz, omówienia zasad współpracy oraz sprawdzenia, czy ta forma pracy odpowiada Twoim potrzebom. Wspólnie podejmiemy decyzję dotyczącą dalszych spotkań.",
+  },
+  {
+    question: "Czy podczas pierwszego spotkania muszę zdecydować się na terapię?",
+    answer:
+      "Nie. Pierwsza konsultacja jest również okazją do tego, żeby sprawdzić, jak jest Ci w kontakcie ze mną, zadać pytania i wspólnie zastanowić się, czy ta forma pracy odpowiada Twoim potrzebom.",
+  },
+  {
+    question: "Dla kogo jest psychoterapia Gestalt?",
+    answer:
+      "Psychoterapia Gestalt może być odpowiednia zarówno dla osób doświadczających kryzysu, lęku, obniżonego nastroju, napięcia czy trudności w relacjach, jak i dla tych, które chcą lepiej poznawać siebie. W terapii ważne są aktualne doświadczenie, relacja terapeutyczna, emocje, ciało, potrzeby i sposób tworzenia kontaktu z innymi.",
   },
   {
     question: "Czy prowadzisz psychoterapię online?",
     answer:
       "Tak. Sesje online są dostępne dla osób z całej Polski. Ta forma sprawdza się szczególnie wtedy, gdy mieszkasz z dala od naszych gabinetów w Gdańsku czy Chojnicach, często podróżujesz lub potrzebujesz większej elastyczności.",
-  },
-  {
-    question: "Dla kogo jest psychoterapia Gestalt?",
-    answer:
-      "Psychoterapia Gestalt może wspierać osoby doświadczające kryzysu, lęku, obniżonego nastroju, trudności w relacjach, napięcia, wypalenia, objawów psychosomatycznych lub potrzeby lepszego kontaktu ze sobą.",
   },
   {
     question: "Czy terapia jest poufna?",

@@ -6,13 +6,13 @@ export const landingPages = [
     icon: HeartHandshake,
     title: "Psychoterapia",
     description:
-      "Psychoterapia indywidualna stacjonarnie w Gdańsku i Chojnicach oraz online. Wsparcie dla osób w kryzysie, zmagających się z lękiem, depresją, stresem i trudnościami relacyjnymi.",
-    h1: "Psychoterapia (Gdańsk / Chojnice / Online)",
+      "Psychoterapia indywidualna w Gdańsku, Chojnicach oraz online. Przestrzeń do zatrzymania się przy tym, co aktualnie dzieje się w Twoim życiu.",
+    h1: "Psychoterapia — przestrzeń spotkania i poznawania siebie",
     lead:
-      "Jeśli przechodzisz przez trudny moment, czujesz napięcie, smutek, lęk albo potrzebujesz uporządkować ważne doświadczenia, psychoterapia stacjonarna w Gdańsku lub Chojnicach oraz sesje online mogą pomóc Ci odzyskać większą świadomość i sprawczość.",
+      "Jeśli przechodzisz przez trudny moment, doświadczasz lęku, smutku, napięcia, trudności w relacjach albo chcesz lepiej rozumieć siebie, psychoterapia może być przestrzenią do zatrzymania się przy tym, co aktualnie dzieje się w Twoim życiu.",
     sections: [
-      "Pracuję z osobami dorosłymi doświadczającymi kryzysu życiowego, przeciążenia emocjonalnego, problemów w relacjach, wypalenia, obniżonego nastroju i objawów psychosomatycznych.",
-      "Pierwsze spotkanie pozwala spokojnie omówić sytuację i sprawdzić, jaka forma pomocy (stacjonarnie w Gdańsku lub Chojnicach czy online) będzie najbardziej adekwatna.",
+      "Podczas spotkań wspólnie przyglądamy się temu, co pojawia się tu i teraz — emocjom, myślom, reakcjom ciała, potrzebom oraz temu, jak jesteś w kontakcie ze sobą i z innymi.",
+      "Nie szukamy jednej właściwej odpowiedzi. Poszerzanie świadomości własnego doświadczenia może otwierać możliwość dokonywania bardziej świadomych wyborów.",
     ],
     faq: [
       {
@@ -23,12 +23,12 @@ export const landingPages = [
       {
         question: "Kiedy warto zgłosić się na psychoterapię?",
         answer:
-          "Warto zgłosić się wtedy, gdy trudności zaczynają wpływać na codzienne funkcjonowanie, relacje, pracę, sen, ciało lub poczucie sensu.",
+          "Zarówno wtedy, gdy doświadczasz konkretnej trudności (kryzysu, lęku, smutku, przeciążenia), jak i wtedy, gdy trudno Ci jeszcze nazwać to, co się dzieje, ale chcesz lepiej rozumieć siebie.",
       },
       {
         question: "Czy pierwsza konsultacja zobowiązuje do terapii?",
         answer:
-          "Nie. To spotkanie służy poznaniu potrzeb, zasad współpracy i wspólnemu ustaleniu możliwego kierunku dalszej pracy.",
+          "Nie. Pierwsze spotkanie jest okazją do poznania tego, z czym przychodzisz, omówienia zasad współpracy oraz sprawdzenia, czy ta forma pracy odpowiada Twoim potrzebom. Wspólnie podejmiemy decyzję dotyczącą dalszych spotkań.",
       },
     ],
   },
@@ -38,9 +38,9 @@ export const landingPages = [
     title: "Psychoterapia online",
     description:
       "Psychoterapia online dla osób z całej Polski. Bezpieczne konsultacje psychoterapeutyczne w nurcie Gestalt bez konieczności dojazdu do gabinetu.",
-    h1: "Psychoterapia online dla osób z całej Polski",
+    h1: "Psychoterapia online — Spotkanie pozostaje spotkaniem",
     lead:
-      "Sesje online dają możliwość regularnej pracy terapeutycznej, gdy mieszkasz poza Gdańskiem czy Chojnicami, często podróżujesz albo potrzebujesz większej elastyczności.",
+      "Także podczas sesji online ważne są dla mnie kontakt, uważność na aktualne doświadczenie oraz to, co pojawia się w emocjach i ciele. Wspólnie tworzymy warunki pozwalające zatrzymać się przy tym, z czym przychodzisz — mimo że znajdujemy się w dwóch różnych miejscach.",
     sections: [
       "Psychoterapia online może być dobrym rozwiązaniem dla osób, które chcą zadbać o ciągłość procesu terapeutycznego niezależnie od miejsca pobytu.",
       "Podczas konsultacji dbamy o poufność, stabilne warunki rozmowy i jasne zasady kontaktu.",
@@ -63,19 +63,20 @@ export const landingPages = [
     icon: Brain,
     title: "Psychoterapia uzależnień",
     description:
-      "Terapia uzależnień stacjonarnie w Gdańsku i Chojnicach oraz online. Wsparcie dla osób mierzących się z uzależnieniem, utratą kontroli i nawrotami.",
-    h1: "Psychoterapia uzależnień (Gdańsk / Chojnice / Online)",
+      "Terapia uzależnień w Gdańsku, Chojnicach i online. Praca nad mechanizmami uzależnienia, nawrotami, emocjami i relacjami.",
+    h1: "Psychoterapia uzależnień",
     lead:
-      "Uzależnienie często dotyka wielu obszarów życia: relacji, pracy, zdrowia, poczucia własnej wartości i codziennych decyzji. W terapii stacjonarnej lub online można przyjrzeć się mechanizmom nałogu i odzyskiwać wpływ na swoje życie.",
+      "Uzależnienie może stopniowo ograniczać możliwość wyboru i wpływać na relacje, emocje, ciało oraz codzienne funkcjonowanie.",
     sections: [
-      "Wspieram osoby, które chcą lepiej zrozumieć swoje zachowania, utrzymać abstynencję, poradzić sobie z nawrotami lub rozpocząć zmianę.",
-      "Praca terapeutyczna uwzględnia zarówno aktualne trudności, jak i emocje, relacje oraz wzorce, które utrwalają problem.",
+      "W terapii wspólnie przyglądamy się temu, jak substancja lub zachowanie funkcjonuje w Twoim życiu — kiedy pojawia się potrzeba sięgnięcia po nie, czego wtedy doświadczasz i jaką funkcję pełni ono w regulowaniu napięcia i emocji.",
+      "Pracujemy nad rozpoznawaniem mechanizmów uzależnienia, sytuacji zwiększających ryzyko nawrotu oraz nad poszerzaniem świadomości własnych potrzeb, emocji i możliwości wyboru.",
+      "Ważną częścią procesu jest również przyglądanie się relacjom, granicom, odpowiedzialności oraz sposobom tworzenia kontaktu ze sobą i z innymi.",
     ],
     faq: [
       {
         question: "Czy muszę być zdecydowana/y na abstynencję?",
         answer:
-          "Pierwsza konsultacja może służyć także rozpoznaniu gotowości do zmiany i omówieniu możliwych form wsparcia.",
+          "Pierwsze spotkanie jest okazją do poznania tego, z czym przychodzisz, omówienia zasad współpracy oraz sprawdzenia, czy ta forma pracy odpowiada Twoim potrzebom. Wspólnie podejmiemy decyzję dotyczącą dalszych spotkań.",
       },
       {
         question: "Czy prowadzisz terapię uzależnień online?",
@@ -89,24 +90,26 @@ export const landingPages = [
     icon: Leaf,
     title: "Psychoterapia Gestalt",
     description:
-      "Psychoterapia Gestalt stacjonarnie w Gdańsku i Chojnicach oraz online. Praca nad świadomością, emocjami, relacjami, granicami i kontaktem ze sobą.",
-    h1: "Psychoterapia Gestalt (Gdańsk / Chojnice / Online)",
+      "Psychoterapia Gestalt stacjonarnie w Gdańsku i Chojnicach oraz online. Świadomość tu i teraz, kontakt, emocje, ciało i możliwości wyboru.",
+    h1: "Psychoterapia Gestalt — spotkanie z tym, czego doświadczasz",
     lead:
-      "Gestalt to podejście, które pomaga lepiej rozumieć siebie w relacji z innymi, rozpoznawać emocje, potrzeby i utrwalone sposoby reagowania.",
+      "Gestalt jest podejściem psychoterapeutycznym, w którym szczególne miejsce zajmuje świadomość tego, czego doświadczasz tu i teraz — w emocjach, myślach, ciele oraz w kontakcie z drugim człowiekiem.",
     sections: [
-      "W pracy terapeutycznej ważne są doświadczenie tu i teraz, kontakt, ciało, emocje, myśli oraz osobista odpowiedzialność za wybory.",
-      "Ten nurt może być pomocny przy trudnościach relacyjnych, napięciu, lęku, obniżonym nastroju, kryzysie oraz potrzebie głębszego poznania siebie.",
+      "Podczas terapii wspólnie przyglądamy się temu, jak przeżywasz siebie i swoje relacje, czego potrzebujesz, jak rozpoznajesz swoje granice oraz jakie sposoby funkcjonowania powtarzają się w Twoim życiu.",
+      "Nie chodzi wyłącznie o rozumienie, dlaczego coś się dzieje. Ważne jest również zauważanie, jak dzieje się to właśnie teraz.",
+      "Relacja terapeutyczna jest częścią procesu. To, co pojawia się pomiędzy nami podczas spotkania, może pomagać lepiej rozpoznawać sposób, w jaki tworzysz kontakt również poza gabinetem.",
+      "Większa świadomość siebie może poszerzać możliwość wyboru — pozwalać zauważyć, kiedy działasz według utrwalonego sposobu, a kiedy możliwa staje się inna odpowiedź.",
     ],
     faq: [
       {
         question: "Czym różni się Gestalt od innych nurtów?",
         answer:
-          "Gestalt kładzie nacisk na świadomość aktualnego doświadczenia, kontakt terapeutyczny i rozumienie człowieka jako całości.",
+          "Gestalt kładzie nacisk na świadomość aktualnego doświadczenia, relację terapeutyczną, kontakt tu i teraz oraz rozumienie człowieka jako całości (emocje, ciało, umysł).",
       },
       {
         question: "Czy Gestalt jest tylko dla osób w kryzysie?",
         answer:
-          "Nie. Psychoterapia Gestalt może wspierać także osoby, które chcą lepiej rozumieć siebie, swoje relacje i powtarzające się wzorce.",
+          "Nie. Psychoterapia Gestalt może być odpowiednia zarówno dla osób doświadczających kryzysu, lęku, obniżonego nastroju, napięcia czy trudności w relacjach, jak i dla tych, które chcą lepiej poznawać siebie.",
       },
     ],
   },

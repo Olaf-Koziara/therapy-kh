@@ -11,11 +11,13 @@ const ServicesTeaser = () => {
             Oferta
           </span>
           <h2 className="mb-4 text-3xl font-bold text-slate-900 sm:text-4xl">
-            W czym mogę Ci pomóc?
+            Z czym możesz przyjść?
           </h2>
           <p className="mx-auto max-w-2xl text-lg text-slate-600">
-            Profesjonalne wsparcie w kryzysie, lęku, uzależnieniu i pracy nad
-            sobą – stacjonarnie oraz online.
+            Możesz zgłosić się zarówno z konkretną trudnością, jak i wtedy, gdy
+            trudno Ci jeszcze nazwać to, co się z Tobą dzieje. Wspólnie
+            będziemy przyglądać się Twojemu doświadczeniu, potrzebom, relacjom i
+            temu, co jest dla Ciebie ważne.
           </p>
         </div>
 
@@ -79,7 +81,7 @@ const ServicesTeaser = () => {
                 Pierwsze spotkanie
               </p>
               <p className="text-sm text-slate-600">
-                Omawiamy potrzeby i sprawdzamy, jaka forma pomocy będzie najlepsza.
+                Omawiamy z czym przychodzisz, zasady współpracy i sprawdzamy, czy ta forma pracy odpowiada Twoim potrzebom.
               </p>
             </article>
           </div>
