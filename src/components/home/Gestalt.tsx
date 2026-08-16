@@ -3,10 +3,10 @@ import { ArrowRight } from "lucide-react";
 
 const Gestalt = () => {
   return (
-    <section id="gestalt" className="bg-blue-600 py-24 text-white">
+    <section id="gestalt" className="bg-earth-sage-600 py-24 text-earth-beige-50">
       <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-16 px-6 md:grid-cols-2">
         <div className="relative order-2 md:order-1">
-          <div className="flex aspect-square items-center justify-center rounded-full border border-blue-400/30 bg-blue-700/50 p-12">
+          <div className="flex aspect-square items-center justify-center rounded-full border border-earth-sage-400/30 bg-earth-sage-700/50 p-12">
             <div className="text-center">
               <h3 className="mb-4 font-serif text-5xl italic text-white/60 md:text-6xl">
                 &ldquo;Tu i teraz&rdquo;
@@ -28,7 +28,7 @@ const Gestalt = () => {
             Pomaga to zrozumieć, co dzieje się z nami w teraźniejszości i jak
             nasze wzorce z przeszłości wpływają na obecne relacje i wybory.
           </p>
-          <blockquote className="mb-8 border-l-4 border-blue-200 pl-6 text-xl italic text-white/95">
+          <blockquote className="mb-8 border-l-4 border-earth-beige-300 pl-6 text-xl italic text-white/95">
             &ldquo;To spotkanie dwojga ludzi, oparte na otwartym, szczerym i
             autentycznym kontakcie.&rdquo;
           </blockquote>

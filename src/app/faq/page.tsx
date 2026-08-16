@@ -16,11 +16,11 @@ export default function FaqPage() {
   return (
     <main className="pt-24">
       <FAQ />
-      <section className="bg-white pb-24 px-6">
+      <section className="bg-earth-beige-50 pb-24 px-6">
         <div className="mx-auto max-w-5xl text-center">
           <Link
             href="/kontakt"
-            className="inline-flex items-center gap-2 rounded-2xl bg-blue-600 px-8 py-4 font-bold text-white shadow-md transition-all hover:bg-blue-700"
+            className="inline-flex items-center gap-2 rounded-2xl bg-earth-sage-600 px-8 py-4 font-bold text-earth-beige-50 shadow-md transition-all hover:bg-earth-sage-700"
           >
             <CalendarCheck size={18} />
             Umów konsultację

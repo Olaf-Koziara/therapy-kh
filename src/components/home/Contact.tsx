@@ -87,24 +87,24 @@ const Contact = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="mb-8 text-4xl font-bold text-slate-900">
+            <h2 className="mb-8 text-4xl font-bold text-earth-brown-900">
               Zapraszam do kontaktu
             </h2>
-            <p className="mb-12 text-lg text-slate-600">
+            <p className="mb-12 text-lg text-earth-brown-700">
               Jeśli masz pytania lub chcesz umówić się na pierwszą konsultację,
               napisz do mnie lub zadzwoń. Odpowiem najszybciej, jak to możliwe.
             </p>
 
             <div className="space-y-8">
               <div className="flex items-start space-x-4">
-                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-blue-50 text-blue-600">
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-earth-sage-100 text-earth-sage-600">
                   <Phone size={24} />
                 </div>
                 <div>
-                  <h4 className="mb-1 font-bold text-slate-800">Telefon</h4>
+                  <h4 className="mb-1 font-bold text-earth-brown-800">Telefon</h4>
                   <a
                     href="tel:889470294"
-                    className="text-xl text-slate-700 transition-colors hover:text-blue-600"
+                    className="text-xl text-earth-brown-700 transition-colors hover:text-earth-sage-600"
                   >
                     889 470 294
                   </a>
@@ -112,14 +112,14 @@ const Contact = () => {
               </div>
 
               <div className="flex items-start space-x-4">
-                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-blue-50 text-blue-600">
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-earth-sage-100 text-earth-sage-600">
                   <Mail size={24} />
                 </div>
                 <div>
-                  <h4 className="mb-1 font-bold text-slate-800">Email</h4>
+                  <h4 className="mb-1 font-bold text-earth-brown-800">Email</h4>
                   <a
                     href="mailto:kamila@helta.pl"
-                    className="text-xl text-slate-700 transition-colors hover:text-blue-600"
+                    className="text-xl text-earth-brown-700 transition-colors hover:text-earth-sage-600"
                   >
                     kamila@helta.pl
                   </a>
@@ -127,45 +127,45 @@ const Contact = () => {
               </div>
 
               <div className="flex items-start space-x-4">
-                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-blue-50 text-blue-600">
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-earth-sage-100 text-earth-sage-600">
                   <MapPin size={24} />
                 </div>
                 <div>
-                  <h4 className="mb-1 font-bold text-slate-800">Lokalizacja</h4>
-                  <p className="text-xl text-slate-700">
+                  <h4 className="mb-1 font-bold text-earth-brown-800">Lokalizacja</h4>
+                  <p className="text-xl text-earth-brown-700">
                     Gdańsk, Chojnice (stacjonarnie) oraz psychoterapia online dla
                     osób z całej Polski
                   </p>
                 </div>
               </div>
 
-              <div className="mt-12 rounded-3xl border border-blue-100 bg-blue-50/60 p-8">
-                <h4 className="mb-6 text-xl font-bold text-slate-900">
+              <div className="mt-12 rounded-3xl border border-earth-beige-200 bg-earth-beige-100/60 p-8">
+                <h4 className="mb-6 text-xl font-bold text-earth-brown-900">
                   Ważne informacje organizacyjne
                 </h4>
                 <ul className="space-y-4">
-                  <li className="flex items-start gap-3 text-slate-700">
-                    <Clock className="mt-0.5 h-5 w-5 shrink-0 text-blue-600" />
+                  <li className="flex items-start gap-3 text-earth-brown-700">
+                    <Clock className="mt-0.5 h-5 w-5 shrink-0 text-earth-sage-600" />
                     <span>
                       <strong>Czas trwania sesji:</strong> 50 minut
                     </span>
                   </li>
-                  <li className="flex items-start gap-3 text-slate-700">
-                    <CreditCard className="mt-0.5 h-5 w-5 shrink-0 text-blue-600" />
+                  <li className="flex items-start gap-3 text-earth-brown-700">
+                    <CreditCard className="mt-0.5 h-5 w-5 shrink-0 text-earth-sage-600" />
                     <span>
                       <strong>Koszt konsultacji:</strong> cena sesji podawana
                       przy kontakcie (płatność gotówką lub przelewem)
                     </span>
                   </li>
-                  <li className="flex items-start gap-3 text-slate-700">
-                    <Users className="mt-0.5 h-5 w-5 shrink-0 text-blue-600" />
+                  <li className="flex items-start gap-3 text-earth-brown-700">
+                    <Users className="mt-0.5 h-5 w-5 shrink-0 text-earth-sage-600" />
                     <span>
                       <strong>Forma pracy:</strong> Pracuję z osobami dorosłymi
                       w ramach terapii indywidualnej
                     </span>
                   </li>
-                  <li className="flex items-start gap-3 text-slate-700">
-                    <CalendarCheck className="mt-0.5 h-5 w-5 shrink-0 text-blue-600" />
+                  <li className="flex items-start gap-3 text-earth-brown-700">
+                    <CalendarCheck className="mt-0.5 h-5 w-5 shrink-0 text-earth-sage-600" />
                     <span>
                       <strong>Odwoływanie sesji:</strong> Odwołanie spotkania
                       jest bezpłatne do 24h przed terminem
@@ -181,23 +181,23 @@ const Contact = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="rounded-3xl border border-slate-200 bg-slate-50 p-8 shadow-sm md:p-12"
+            className="rounded-3xl border border-earth-beige-200 bg-earth-beige-50 p-8 shadow-sm md:p-12"
           >
             {submitted ? (
               <div className="flex h-full flex-col items-center justify-center py-12 text-center">
-                <div className="mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-blue-100 text-blue-600">
+                <div className="mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-earth-sage-100 text-earth-sage-600">
                   <Send size={32} />
                 </div>
-                <h3 className="mb-4 text-2xl font-bold text-slate-900">
+                <h3 className="mb-4 text-2xl font-bold text-earth-brown-900">
                   Wiadomość wysłana!
                 </h3>
-                <p className="mb-8 text-slate-600">
+                <p className="mb-8 text-earth-brown-700">
                   {statusMessage ||
                     "Dziękuję za kontakt. Skontaktuję się z Tobą wkrótce."}
                 </p>
                 <button
                   onClick={() => setSubmitted(false)}
-                  className="font-semibold text-blue-600 hover:underline"
+                  className="font-semibold text-earth-sage-600 hover:underline"
                 >
                   Wyślij kolejną wiadomość
                 </button>
@@ -227,7 +227,7 @@ const Contact = () => {
                 <div>
                   <label
                     htmlFor="name"
-                    className="mb-2 block text-sm font-medium text-slate-800"
+                    className="mb-2 block text-sm font-medium text-earth-brown-800"
                   >
                     Imię i Nazwisko
                   </label>
@@ -239,7 +239,7 @@ const Contact = () => {
                     onChange={handleChange}
                     required
                     autoComplete="name"
-                    className="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 transition-all focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full rounded-xl border border-earth-beige-300 bg-white px-4 py-3 transition-all focus:outline-none focus:ring-2 focus:ring-earth-sage-500"
                     placeholder="Twoje imię..."
                   />
                 </div>
@@ -247,7 +247,7 @@ const Contact = () => {
                   <div>
                     <label
                       htmlFor="email"
-                      className="mb-2 block text-sm font-medium text-slate-800"
+                      className="mb-2 block text-sm font-medium text-earth-brown-800"
                     >
                       Email
                     </label>
@@ -259,14 +259,14 @@ const Contact = () => {
                       onChange={handleChange}
                       required
                       autoComplete="email"
-                      className="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 transition-all focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      className="w-full rounded-xl border border-earth-beige-300 bg-white px-4 py-3 transition-all focus:outline-none focus:ring-2 focus:ring-earth-sage-500"
                       placeholder="email@przyklad.pl"
                     />
                   </div>
                   <div>
                     <label
                       htmlFor="phone"
-                      className="mb-2 block text-sm font-medium text-slate-800"
+                      className="mb-2 block text-sm font-medium text-earth-brown-800"
                     >
                       Telefon (opcjonalnie)
                     </label>
@@ -277,7 +277,7 @@ const Contact = () => {
                       value={formState.phone}
                       onChange={handleChange}
                       autoComplete="tel"
-                      className="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 transition-all focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      className="w-full rounded-xl border border-earth-beige-300 bg-white px-4 py-3 transition-all focus:outline-none focus:ring-2 focus:ring-earth-sage-500"
                       placeholder="Numer telefonu..."
                     />
                   </div>
@@ -285,7 +285,7 @@ const Contact = () => {
                 <div>
                   <label
                     htmlFor="message"
-                    className="mb-2 block text-sm font-medium text-slate-800"
+                    className="mb-2 block text-sm font-medium text-earth-brown-800"
                   >
                     Wiadomość
                   </label>
@@ -296,11 +296,11 @@ const Contact = () => {
                     onChange={handleChange}
                     required
                     rows={5}
-                    className="w-full resize-none rounded-xl border border-slate-300 bg-white px-4 py-3 transition-all focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full resize-none rounded-xl border border-earth-beige-300 bg-white px-4 py-3 transition-all focus:outline-none focus:ring-2 focus:ring-earth-sage-500"
                     placeholder="W czym mogę pomóc?"
                   />
                 </div>
-                <div className="flex items-start space-x-3 rounded-lg border border-slate-200 bg-slate-50 p-4">
+                <div className="flex items-start space-x-3 rounded-lg border border-earth-brown-200 bg-earth-brown-50 p-4">
                   <input
                     type="checkbox"
                     id="rodoConsent"
@@ -308,11 +308,11 @@ const Contact = () => {
                     checked={formState.rodoConsent}
                     onChange={handleChange}
                     required
-                    className="mt-1 h-5 w-5 shrink-0 cursor-pointer rounded border-slate-300 text-blue-600 focus:ring-blue-500"
+                    className="mt-1 h-5 w-5 shrink-0 cursor-pointer rounded border-earth-beige-300 text-earth-sage-600 focus:ring-earth-sage-500"
                   />
                   <label
                     htmlFor="rodoConsent"
-                    className="cursor-pointer text-xs leading-relaxed text-slate-700"
+                    className="cursor-pointer text-xs leading-relaxed text-earth-brown-700"
                   >
                     Wyrażam zgodę na przetwarzanie moich danych osobowych dla
                     potrzeb niezbędnych do realizacji procesu zapisu zgodnie z
@@ -323,7 +323,7 @@ const Contact = () => {
                     dyrektywy 95/46/WE (RODO). Zapoznałam/zapoznałem się z{" "}
                     <Link
                       href="/polityka-prywatnosci"
-                      className="font-semibold text-blue-700 underline underline-offset-2 hover:text-blue-600"
+                      className="font-semibold text-earth-sage-700 underline underline-offset-2 hover:text-earth-sage-600"
                     >
                       polityką prywatności
                     </Link>
@@ -333,7 +333,7 @@ const Contact = () => {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="flex w-full items-center justify-center space-x-2 rounded-xl bg-blue-600 py-4 text-lg font-bold text-white shadow-lg transition-all hover:bg-blue-700 disabled:opacity-70"
+                  className="flex w-full items-center justify-center space-x-2 rounded-xl bg-earth-sage-600 py-4 text-lg font-bold text-earth-beige-50 shadow-lg transition-all hover:bg-earth-sage-700 disabled:opacity-70"
                 >
                   {isSubmitting ? (
                     <span className="inline-block animate-pulse">

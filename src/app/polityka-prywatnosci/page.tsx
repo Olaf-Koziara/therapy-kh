@@ -100,65 +100,65 @@ function Section({
   children: React.ReactNode;
 }) {
   return (
-    <section id={id} className="scroll-mt-28 border-t border-slate-200 py-12">
+    <section id={id} className="scroll-mt-28 border-t border-earth-beige-200 py-12">
       <div className="flex items-start gap-4">
-        <div className="mt-1 flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-2xl bg-blue-50 text-blue-600">
+        <div className="mt-1 flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-2xl bg-earth-sage-100 text-earth-sage-600">
           <Icon size={24} />
         </div>
         <div>
-          <p className="mb-2 text-sm font-medium uppercase tracking-[0.2em] text-blue-600">
+          <p className="mb-2 text-sm font-medium uppercase tracking-[0.2em] text-earth-sage-600">
             {eyebrow}
           </p>
-          <h2 className="text-3xl font-bold text-slate-900">{title}</h2>
+          <h2 className="text-3xl font-bold text-earth-brown-900">{title}</h2>
         </div>
       </div>
-      <div className="mt-8 space-y-6 text-slate-700">{children}</div>
+      <div className="mt-8 space-y-6 text-earth-brown-700">{children}</div>
     </section>
   );
 }
 
 export default function PrivacyPolicyPage() {
   return (
-    <main className="bg-slate-50 pt-32">
+    <main className="bg-earth-beige-50 pt-32">
       <section className="px-6 pb-16 pt-8">
         <div className="mx-auto max-w-5xl">
           <Link
             href="/"
-            className="mb-10 inline-flex text-sm font-semibold uppercase tracking-[0.18em] text-blue-600 transition-colors hover:text-blue-700"
+            className="mb-10 inline-flex text-sm font-semibold uppercase tracking-[0.18em] text-earth-sage-600 transition-colors hover:text-earth-sage-700"
           >
             Powrót do strony głównej
           </Link>
 
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-[1fr_320px] lg:items-start">
             <div>
-              <p className="mb-4 text-sm font-medium uppercase tracking-[0.22em] text-blue-600">
+              <p className="mb-4 text-sm font-medium uppercase tracking-[0.22em] text-earth-sage-600">
                 Informacje o ochronie danych
               </p>
-              <h1 className="text-4xl font-bold leading-tight text-slate-900 md:text-6xl">
+              <h1 className="text-4xl font-bold leading-tight text-earth-brown-900 md:text-6xl">
                 Polityka prywatności
               </h1>
-              <p className="mt-8 max-w-3xl text-lg leading-relaxed text-slate-700">
+              <p className="mt-8 max-w-3xl text-lg leading-relaxed text-earth-brown-700">
                 Poniższy dokument opisuje zasady przetwarzania danych osobowych
                 osób korzystających ze strony internetowej oraz kontaktujących
                 się z gabinetem psychoterapeutycznym.
               </p>
             </div>
 
-            <aside className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
-              <h2 className="mb-5 text-lg font-bold text-slate-900">
+            <aside className="rounded-3xl border border-earth-beige-200 bg-white p-6 shadow-sm">
+              <h2 className="mb-5 text-lg font-bold text-earth-brown-900">
                 Najważniejsze informacje
               </h2>
               <div className="space-y-5">
                 {quickFacts.map((item) => (
                   <div key={item.label} className="flex gap-3">
-                    <div className="mt-1 text-blue-600">
+                    <div className="mt-1 text-earth-sage-600">
                       <item.icon size={20} />
                     </div>
                     <div>
-                      <p className="text-sm font-semibold text-slate-800">
+                      <p className="text-sm font-semibold text-earth-brown-800">
                         {item.label}
                       </p>
-                      <p className="mt-1 text-sm leading-relaxed text-slate-600">
+                      <p className="mt-1 text-sm leading-relaxed text-earth-brown-700">
                         {item.value}
                       </p>
                     </div>
@@ -223,29 +223,29 @@ export default function PrivacyPolicyPage() {
               {processingPurposes.map((item, index) => (
                 <article
                   key={item.purpose}
-                  className="rounded-2xl border border-slate-200 bg-slate-50 p-6"
+                  className="rounded-2xl border border-earth-beige-200 bg-earth-beige-50 p-6"
                 >
-                  <h3 className="text-lg font-bold text-slate-900">
+                  <h3 className="text-lg font-bold text-earth-brown-900">
                     {index + 1}. {item.purpose}
                   </h3>
                   <dl className="mt-5 space-y-4 text-sm leading-relaxed md:text-base">
                     <div>
-                      <dt className="font-semibold text-slate-800">
+                      <dt className="font-semibold text-earth-brown-800">
                         Kategorie danych
                       </dt>
-                      <dd className="mt-1 text-slate-700">{item.data}</dd>
+                      <dd className="mt-1 text-earth-brown-700">{item.data}</dd>
                     </div>
                     <div>
-                      <dt className="font-semibold text-slate-800">
+                      <dt className="font-semibold text-earth-brown-800">
                         Podstawa prawna
                       </dt>
-                      <dd className="mt-1 text-slate-700">{item.basis}</dd>
+                      <dd className="mt-1 text-earth-brown-700">{item.basis}</dd>
                     </div>
                     <div>
-                      <dt className="font-semibold text-slate-800">
+                      <dt className="font-semibold text-earth-brown-800">
                         Okres przechowywania
                       </dt>
-                      <dd className="mt-1 text-slate-700">{item.period}</dd>
+                      <dd className="mt-1 text-earth-brown-700">{item.period}</dd>
                     </div>
                   </dl>
                 </article>
@@ -297,7 +297,7 @@ export default function PrivacyPolicyPage() {
               {rights.map((right) => (
                 <li key={right} className="flex gap-3 leading-relaxed">
                   <CheckCircle2
-                    className="mt-1 flex-shrink-0 text-blue-600"
+                    className="mt-1 flex-shrink-0 text-earth-sage-600"
                     size={18}
                   />
                   <span>{right}</span>

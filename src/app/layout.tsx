@@ -74,7 +74,7 @@ export default function RootLayout({
   return (
     <html lang="pl" className="scroll-smooth">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased selection:bg-blue-100 selection:text-blue-900 font-sans min-h-screen flex flex-col bg-white text-slate-900`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased selection:bg-earth-sage-100 selection:text-earth-brown-900 font-sans min-h-screen flex flex-col bg-earth-beige-50 text-earth-brown-900`}
       >
         <Navbar />
         <main className="flex-1">{children}</main>
