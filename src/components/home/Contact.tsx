@@ -13,7 +13,8 @@ import {
   Users,
   CalendarCheck,
 } from "lucide-react";
-import { sendContactForm } from "@/app/actions";
+
+const emailAddress = process.env.NEXT_PUBLIC_EMAIL;
 
 const Contact = () => {
   const [formState, setFormState] = useState({
@@ -36,35 +37,68 @@ const Contact = () => {
     setErrorMessage("");
     setStatusMessage("");
 
-    const formData = new FormData();
-    Object.entries(formState).forEach(([key, value]) => {
-      formData.append(key, String(value));
-    });
+    const name = formState.name.trim();
+    const email = formState.email.trim();
+    const message = formState.message.trim();
+    const website = formState.website.trim();
 
-    try {
-      const result = await sendContactForm(formData);
-      if (result.success) {
-        setSubmitted(true);
-        setStatusMessage(result.message);
-        setFormState({
-          name: "",
-          email: "",
-          phone: "",
-          message: "",
-          rodoConsent: false,
-          website: "",
-        });
-      } else {
-        setErrorMessage(result.message);
-      }
-    } catch (error) {
-      console.error("Error submitting form:", error);
-      setErrorMessage(
-        "Nie udało się wysłać wiadomości. Spróbuj ponownie albo skorzystaj z telefonu lub e-maila.",
-      );
-    } finally {
+    if (website) {
+      setSubmitted(true);
+      setStatusMessage("Dziękuję za wiadomość.");
       setIsSubmitting(false);
+      return;
     }
+
+    if (!name || !email || !message) {
+      setErrorMessage("Uzupełnij imię, adres e-mail i treść wiadomości.");
+      setIsSubmitting(false);
+      return;
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      setErrorMessage("Podaj poprawny adres e-mail.");
+      setIsSubmitting(false);
+      return;
+    }
+
+    if (!formState.rodoConsent) {
+      setErrorMessage(
+        "Zgoda na przetwarzanie danych jest wymagana do wysłania formularza.",
+      );
+      setIsSubmitting(false);
+      return;
+    }
+
+    const subject = encodeURIComponent(`Nowe zapytanie ze strony - ${name}`);
+    const body = encodeURIComponent(
+      [
+        `Imię i nazwisko: ${name}`,
+        `E-mail: ${email}`,
+        formState.phone.trim() ? `Telefon: ${formState.phone.trim()}` : "",
+        "",
+        "Wiadomość:",
+        message,
+      ]
+        .filter(Boolean)
+        .join("\n"),
+    );
+
+    window.location.href = `mailto:${emailAddress}?subject=${subject}&body=${body}`;
+
+    setSubmitted(true);
+    setStatusMessage(
+      "Dziękuję za wiadomość. Proszę sprawdzić skrzynkę pocztową, aby dokończyć wysłanie.",
+    );
+    setFormState({
+      name: "",
+      email: "",
+      phone: "",
+      message: "",
+      rodoConsent: false,
+      website: "",
+    });
+    setIsSubmitting(false);
   };
 
   const handleChange = (
@@ -101,7 +135,9 @@ const Contact = () => {
                   <Phone size={24} />
                 </div>
                 <div>
-                  <h4 className="mb-1 font-bold text-earth-brown-800">Telefon</h4>
+                  <h4 className="mb-1 font-bold text-earth-brown-800">
+                    Telefon
+                  </h4>
                   <a
                     href="tel:889470294"
                     className="text-xl text-earth-brown-700 transition-colors hover:text-earth-sage-600"
@@ -131,10 +167,12 @@ const Contact = () => {
                   <MapPin size={24} />
                 </div>
                 <div>
-                  <h4 className="mb-1 font-bold text-earth-brown-800">Lokalizacja</h4>
+                  <h4 className="mb-1 font-bold text-earth-brown-800">
+                    Lokalizacja
+                  </h4>
                   <p className="text-xl text-earth-brown-700">
-                    Gdańsk, Chojnice (stacjonarnie) oraz psychoterapia online dla
-                    osób z całej Polski
+                    Gdańsk, Chojnice (stacjonarnie) oraz psychoterapia online
+                    dla osób z całej Polski
                   </p>
                 </div>
               </div>
