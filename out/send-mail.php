@@ -6,22 +6,26 @@ error_reporting(E_ALL);
 header('Content-Type: application/json; charset=utf-8');
 
 // =========================================================================
-// KONFIGURACJA POCZTY I LOGÓW
+// KONFIGURACJA POCZTY (JDM.PL SMTP)
 // =========================================================================
-$toEmail = 'kamila@helta.pl';
-$fromEmail = 'kamila@helta.pl';
+// 1. Docelowy adres, na który mają przychodzić wiadomości:
+$toEmail = 'olaf.koziara@gmail.com';
 
-// Ścieżka do pliku logów (zapisuje się w tym samym folderze co skrypt)
+// 2. Adres nadawcy (musi być zgodny z kontem na serwerze SMTP):
+$fromEmail = 'formularz@kamilahelta.pl';
+
+// 3. Ścieżka do pliku logów (zapisuje się w tym samym folderze):
 $logFile = __DIR__ . '/mail_errors.log';
 
+// 4. Konfiguracja SMTP
 $config = [
-    'DEBUG_MODE' => true,                  // Zwracaj szczegółowe błędy w odpowiedzi JSON
-    'USE_SMTP'   => false,                 // true = wysyłka przez SMTP, false = funkcja mail()
-    'SMTP_HOST'  => 'mail.kamilahelta.pl', // np. mail.kamilahelta.pl lub sX.twojhosting.pl
-    'SMTP_PORT'  => 465,                   // 465 dla SSL, 587 dla TLS
-    'SMTP_SECURE'=> 'ssl',                 // 'ssl' lub 'tls'
-    'SMTP_USER'  => 'kamila@helta.pl',
-    'SMTP_PASS'  => '',                    // hasło do skrzynki (wymagane przy USE_SMTP => true)
+    'DEBUG_MODE' => true,                 // Zwracaj szczegółowy błąd w JSON w razie problemów
+    'USE_SMTP'   => true,                 // WŁĄCZONE SMTP dla jdm.pl
+    'SMTP_HOST'  => 'smtp.jdm.pl',        // Host poczty wychodzącej JDM
+    'SMTP_PORT'  => 587,                  // Port dla STARTTLS
+    'SMTP_SECURE'=> 'tls',                // Szyfrowanie STARTTLS
+    'SMTP_USER'  => 'formularz@kamilahelta.pl', // Login do skrzynki
+    'SMTP_PASS'  => '2iID8LzYt7DJcJlc', // <-- WPISZ SWOJE HASŁO DO SKRZYNKI POCZTOWEJ
 ];
 
 // =========================================================================
@@ -39,17 +43,29 @@ function logMessage($msg, $file) {
 if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['diag'])) {
     $disabledFunctions = explode(',', ini_get('disable_functions'));
     $disabledFunctions = array_map('trim', $disabledFunctions);
-    $mailDisabled = in_array('mail', $disabledFunctions);
     $fsockopenDisabled = in_array('fsockopen', $disabledFunctions);
 
+    // Próba testu połączenia z portem SMTP
+    $smtpPing = false;
+    $smtpErr = '';
+    $testSocket = @stream_socket_client("tcp://{$config['SMTP_HOST']}:{$config['SMTP_PORT']}", $errno, $errstr, 5);
+    if ($testSocket) {
+        $smtpPing = true;
+        fclose($testSocket);
+    } else {
+        $smtpErr = "$errstr ($errno)";
+    }
+
     echo json_encode([
+        'status' => 'Diagnostics OK',
         'php_version' => phpversion(),
-        'sendmail_path' => ini_get('sendmail_path'),
-        'mail_function_enabled' => !$mailDisabled,
+        'smtp_host' => $config['SMTP_HOST'],
+        'smtp_port' => $config['SMTP_PORT'],
+        'smtp_connection_test' => $smtpPing ? 'POŁĄCZONO UDANIE' : 'BŁĄD POŁĄCZENIA: ' . $smtpErr,
+        'has_smtp_password_set' => ($config['SMTP_PASS'] !== '' && $config['SMTP_PASS'] !== 'TUTAJ_WPISZ_HASLO_DO_SKRZYNKI'),
         'fsockopen_enabled' => !$fsockopenDisabled,
         'log_file_writable' => is_writable(__DIR__) || (file_exists($logFile) && is_writable($logFile)),
         'log_file_path' => $logFile,
-        'disabled_functions' => $disabledFunctions,
     ], JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
     exit;
 }
@@ -64,7 +80,7 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     exit;
 }
 
-// Odczyt danych
+// Odczyt danych z żądania
 $contentType = isset($_SERVER['CONTENT_TYPE']) ? trim($_SERVER['CONTENT_TYPE']) : '';
 if (strpos($contentType, 'application/json') !== false) {
     $input = file_get_contents('php://input');
@@ -73,14 +89,14 @@ if (strpos($contentType, 'application/json') !== false) {
     $data = $_POST;
 }
 
-// Honeypot dla botów
+// Honeypot dla botów spamujących
 if (!empty($data['website'])) {
     logMessage("SPAM BOT zablokowany (honeypot): " . json_encode($data, JSON_UNESCAPED_UNICODE), $logFile);
     echo json_encode(['success' => true, 'message' => 'Dziękujemy za wiadomość.'], JSON_UNESCAPED_UNICODE);
     exit;
 }
 
-// Pobranie i czyszczenie pól
+// Pobranie i oczyszczenie pól formularza
 $name = isset($data['name']) ? trim(strip_tags($data['name'])) : '';
 $email = isset($data['email']) ? trim($data['email']) : '';
 $phone = isset($data['phone']) ? trim(strip_tags($data['phone'])) : '';
@@ -118,7 +134,6 @@ if (!empty($errors)) {
 
 // Formatowanie wiadomości
 $subjectRaw = "Nowa wiadomość z formularza: " . $name;
-$subject = '=?UTF-8?B?' . base64_encode($subjectRaw) . '?=';
 
 $body = "Nowa wiadomość z formularza na stronie kamilahelta.pl\n\n";
 $body .= "--------------------------------------------------\n";
@@ -133,15 +148,19 @@ $body .= "--------------------------------------------------\n\n";
 $body .= "Treść wiadomości:\n";
 $body .= $message . "\n\n";
 $body .= "--------------------------------------------------\n";
-$body .= "Zgoda RODO została zaznaczona.\n";
+$body .= "Zgoda RODO została zaakceptowana w formularzu.\n";
 
 $mailSent = false;
 $errorDetails = '';
 
-// 1. WYSYŁKA PRZEZ SMTP
-if ($config['USE_SMTP'] && !empty($config['SMTP_PASS'])) {
+// Sprawdzenie czy hasło zostało uzupełnione
+if ($config['USE_SMTP'] && ($config['SMTP_PASS'] === '' || $config['SMTP_PASS'] === 'TUTAJ_WPISZ_HASLO_DO_SKRZYNKI')) {
+    $mailSent = false;
+    $errorDetails = "Wymagane jest wpisanie hasła do skrzynki formularz@kamilahelta.pl w pliku send-mail.php (w zmiennej SMTP_PASS).";
+    logMessage("BŁĄD: " . $errorDetails, $logFile);
+} else if ($config['USE_SMTP']) {
     try {
-        logMessage("Rozpoczynanie wysyłki przez SMTP ($config[SMTP_HOST]:$config[SMTP_PORT])...", $logFile);
+        logMessage("Wysyłanie maila przez SMTP jdm.pl dla {$email}...", $logFile);
         $mailSent = sendViaSmtp(
             $config['SMTP_HOST'],
             $config['SMTP_PORT'],
@@ -155,40 +174,11 @@ if ($config['USE_SMTP'] && !empty($config['SMTP_PASS'])) {
             $subjectRaw,
             $body
         );
-        logMessage("Wysyłka SMTP zakończona sukcesem dla: $email", $logFile);
+        logMessage("Mail wysłany pomyślnie przez SMTP na adres {$toEmail}.", $logFile);
     } catch (Exception $e) {
         $mailSent = false;
-        $errorDetails = "SMTP Error: " . $e->getMessage();
+        $errorDetails = "Błąd SMTP: " . $e->getMessage();
         logMessage("BŁĄD SMTP: " . $e->getMessage(), $logFile);
-    }
-} else {
-    // 2. WYSYŁKA PRZEZ FUNKCJĘ PHP mail()
-    $headers = [
-        'MIME-Version: 1.0',
-        'Content-Type: text/plain; charset=UTF-8; format=flowed',
-        'Content-Transfer-Encoding: 8bit',
-        'From: Formularz kontaktowy <' . $fromEmail . '>',
-        'Reply-To: ' . $name . ' <' . $email . '>',
-        'X-Mailer: PHP/' . phpversion()
-    ];
-    $headerString = implode("\r\n", $headers);
-
-    logMessage("Próba wysłania funkcji mail() na adres: $toEmail od: $fromEmail (Reply-To: $email)", $logFile);
-
-    // Próba z parametrem -f
-    $mailSent = @mail($toEmail, $subject, $body, $headerString, "-f" . $fromEmail);
-
-    if (!$mailSent) {
-        // Próba bez parametru -f
-        $mailSent = @mail($toEmail, $subject, $body, $headerString);
-    }
-
-    if ($mailSent) {
-        logMessage("Funkcja mail() zwróciła TRUE dla: $email", $logFile);
-    } else {
-        $lastErr = error_get_last();
-        $errorDetails = "mail() returned false. " . ($lastErr['message'] ?? 'Brak komunikatu systemowego (często zablokowane sendmail/brak serwera MTA na hostingu)');
-        logMessage("BŁĄD mail(): " . $errorDetails, $logFile);
     }
 }
 
@@ -207,16 +197,16 @@ if ($mailSent) {
     ];
     if ($config['DEBUG_MODE']) {
         $response['debug'] = $errorDetails;
-        $response['log_hint'] = 'Szczegóły zostały zapisane w pliku mail_errors.log na serwerze';
+        $response['log_hint'] = 'Szczegóły błędu zapisano w pliku mail_errors.log';
     }
     echo json_encode($response, JSON_UNESCAPED_UNICODE);
 }
 
 // =========================================================================
-// KLIENT SMTP
+// LEKKI KLIENT SMTP DLA JDM.PL (STARTTLS / SSL)
 // =========================================================================
 function sendViaSmtp($host, $port, $user, $pass, $secure, $from, $to, $replyTo, $senderName, $subject, $body) {
-    $protocol = ($secure === 'ssl') ? 'ssl://' : '';
+    $protocol = ($secure === 'ssl') ? 'ssl://' : 'tcp://';
     $context = stream_context_create([
         'ssl' => [
             'verify_peer' => false,
@@ -227,7 +217,7 @@ function sendViaSmtp($host, $port, $user, $pass, $secure, $from, $to, $replyTo, 
 
     $socket = @stream_socket_client($protocol . $host . ':' . $port, $errno, $errstr, 15, STREAM_CLIENT_CONNECT, $context);
     if (!$socket) {
-        throw new Exception("Nie można połączyć z $host:$port -> $errstr ($errno)");
+        throw new Exception("Nie można połączyć z serwerem SMTP ($host:$port): $errstr ($errno)");
     }
 
     $read = function() use ($socket) {
@@ -244,18 +234,21 @@ function sendViaSmtp($host, $port, $user, $pass, $secure, $from, $to, $replyTo, 
         $resp = $read();
         $code = (int)substr($resp, 0, 3);
         if ($expectedCode && $code !== $expectedCode) {
-            throw new Exception("Błąd komendy '$cmd': $resp");
+            throw new Exception("Błąd komendy '$cmd' (kod $code): $resp");
         }
         return $resp;
     };
 
-    $read();
-    $helloHost = !empty($_SERVER['SERVER_NAME']) ? $_SERVER['SERVER_NAME'] : 'localhost';
+    $banner = $read();
+    $helloHost = !empty($_SERVER['SERVER_NAME']) ? $_SERVER['SERVER_NAME'] : 'kamilahelta.pl';
     $send("EHLO " . $helloHost);
 
     if ($secure === 'tls') {
         $send("STARTTLS", 220);
-        stream_socket_enable_crypto($socket, true, STREAM_CRYPTO_METHOD_TLS_CLIENT);
+        $cryptoOk = stream_socket_enable_crypto($socket, true, STREAM_CRYPTO_METHOD_TLS_CLIENT);
+        if (!$cryptoOk) {
+            throw new Exception("Nie udało się nawiązać szyfrowania STARTTLS");
+        }
         $send("EHLO " . $helloHost);
     }
 
@@ -263,8 +256,8 @@ function sendViaSmtp($host, $port, $user, $pass, $secure, $from, $to, $replyTo, 
     $send(base64_encode($user), 334);
     $send(base64_encode($pass), 235);
 
-    $send("MAIL FROM: <" . $from . ">");
-    $send("RCPT TO: <" . $to . ">");
+    $send("MAIL FROM: <" . $from . ">", 250);
+    $send("RCPT TO: <" . $to . ">", 250);
     $send("DATA", 354);
 
     $encodedSubject = '=?UTF-8?B?' . base64_encode($subject) . '?=';
