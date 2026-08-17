@@ -9,7 +9,7 @@ export const professionalServiceJsonLd = () => ({
   "@type": "ProfessionalService",
   name: "Kamila Helta - Psychoterapia Gestalt i terapia uzależnień",
   url: siteUrl,
-  image: `${siteUrl}/images/kamila-helta.jpg`,
+  image: `${siteUrl}/images/kamila-helta.webp`,
   telephone: contactPhone,
   email: contactEmail,
   areaServed: [

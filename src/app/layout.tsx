@@ -8,12 +8,14 @@ import { siteName, siteUrl } from "@/lib/seo";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
-  subsets: ["latin"],
+  subsets: ["latin", "latin-ext"],
+  display: "swap",
 });
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
-  subsets: ["latin"],
+  subsets: ["latin", "latin-ext"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -44,9 +46,9 @@ export const metadata: Metadata = {
     siteName,
     images: [
       {
-        url: "/images/kamila-helta.jpeg",
-        width: 368,
-        height: 532,
+        url: "/images/kamila-helta.webp",
+        width: 800,
+        height: 1031,
         alt: "Kamila Helta, psychoterapeutka",
       },
     ],
@@ -58,7 +60,7 @@ export const metadata: Metadata = {
     title: "Psychoterapia, Terapia uzależnień, Konsultacje | Gdańsk, Chojnice, Online",
     description:
       "Kamila Helta - psychoterapia, terapia uzależnień i konsultacje online (Gdańsk, Chojnice).",
-    images: ["/images/kamila-helta.jpeg"],
+    images: ["/images/kamila-helta.webp"],
   },
   robots: {
     index: true,
@@ -73,6 +75,16 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pl" className="scroll-smooth">
+      <head>
+        <link
+          rel="preload"
+          as="image"
+          href="/images/kamila-helta.webp"
+          type="image/webp"
+          // @ts-expect-error - fetchPriority is standard in modern HTML
+          fetchpriority="high"
+        />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased selection:bg-earth-sage-100 selection:text-earth-brown-900 font-sans min-h-screen flex flex-col bg-earth-beige-50 text-earth-brown-900`}
       >

@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
-import { Mail, Phone, MapPin, TreeDeciduous, CalendarCheck, ShieldCheck, ExternalLink } from 'lucide-react';
-import { ZnanyLekarzIcon } from '@/components/icons/ZnanyLekarzIcon';
+import { Mail, Phone, MapPin, TreeDeciduous, CalendarCheck, ShieldCheck } from 'lucide-react';
+import { ZnanyLekarz } from '@/components/common/ZnanyLekarz';
 
 const Footer = () => {
   return (
@@ -45,16 +45,13 @@ const Footer = () => {
               <Link href="/kontakt" className="hover:text-earth-sage-300 transition-colors font-semibold text-earth-sage-400">Kontakt i Rezerwacja</Link>
             </li>
             <li>
-              <a
-                href="https://www.znanylekarz.pl/kamila-helta/psychoterapeuta/chojnice"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 text-teal-400 hover:text-teal-300 transition-colors font-medium pt-1"
-              >
-                <ZnanyLekarzIcon size={16} />
-                <span>Profil ZnanyLekarz.pl</span>
-                <ExternalLink size={12} />
-              </a>
+              <ZnanyLekarz
+                text="Profil ZnanyLekarz.pl"
+                variant="subtle"
+                showExternalIcon
+                iconSize={16}
+                className="text-teal-400 hover:text-teal-300 pt-1"
+              />
             </li>
           </ul>
         </div>

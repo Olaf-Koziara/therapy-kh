@@ -99,11 +99,12 @@ const Hero = () => {
 
           <div className="relative aspect-[4/5] overflow-hidden rounded-3xl bg-earth-beige-200 shadow-2xl border border-earth-beige-300/60">
             <Image
-              src="/images/kamila-helta.jpeg"
+              src="/images/kamila-helta.webp"
               alt="Kamila Helta, psychoterapeutka Gestalt i specjalistka terapii uzależnień"
               fill
               priority
-              sizes="(min-width: 1024px) 45vw, 100vw"
+              fetchPriority="high"
+              sizes="(min-width: 1024px) 500px, (min-width: 640px) 70vw, 92vw"
               className="object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-earth-brown-900/40 via-transparent to-transparent" aria-hidden="true" />

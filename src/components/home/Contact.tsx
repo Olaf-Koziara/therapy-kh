@@ -2,7 +2,6 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { motion } from "framer-motion";
 import {
   Mail,
   Phone,
@@ -13,6 +12,7 @@ import {
   Users,
   CalendarCheck,
 } from "lucide-react";
+import { ZnanyLekarz } from "@/components/common/ZnanyLekarz";
 
 const Contact = () => {
   const [formState, setFormState] = useState({
@@ -134,11 +134,7 @@ const Contact = () => {
     <section id="kontakt" className="bg-white py-24">
       <div className="mx-auto max-w-7xl px-6">
         <div className="grid grid-cols-1 gap-16 lg:grid-cols-2">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
+          <div className="space-y-6">
             <h2 className="mb-8 text-4xl font-bold text-earth-brown-900">
               Zapraszam do kontaktu
             </h2>
@@ -195,6 +191,29 @@ const Contact = () => {
                 </div>
               </div>
 
+              <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 rounded-2xl border border-teal-200/90 bg-teal-50/70 p-5 shadow-xs transition-colors hover:border-teal-300">
+                <div className="space-y-1">
+                  <div className="flex items-center gap-2">
+                    <span className="inline-flex items-center text-xs font-bold uppercase tracking-wider text-teal-800 bg-teal-100 px-2.5 py-0.5 rounded-full">
+                      Rezerwacja online
+                    </span>
+                  </div>
+                  <h4 className="font-bold text-earth-brown-900 text-base">
+                    Rezerwacja wizyt przez ZnanyLekarz.pl
+                  </h4>
+                  <p className="text-sm text-earth-brown-700">
+                    Sprawdź grafik, wolne terminy i umów dogodną wizytę online.
+                  </p>
+                </div>
+                <ZnanyLekarz
+                  text="Umów wizytę"
+                  variant="button"
+                  showExternalIcon
+                  iconSize={20}
+                  className="w-full sm:w-auto shrink-0 py-2.5 px-5 text-sm"
+                />
+              </div>
+
               <div className="mt-12 rounded-3xl border border-earth-beige-200 bg-earth-beige-100/60 p-8">
                 <h4 className="mb-6 text-xl font-bold text-earth-brown-900">
                   Ważne informacje organizacyjne
@@ -230,15 +249,9 @@ const Contact = () => {
                 </ul>
               </div>
             </div>
-          </motion.div>
+          </div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-            className="rounded-3xl border border-earth-beige-200 bg-earth-beige-50 p-8 shadow-sm md:p-12"
-          >
+          <div className="rounded-3xl border border-earth-beige-200 bg-earth-beige-50 p-8 shadow-sm md:p-12">
             {submitted ? (
               <div className="flex h-full flex-col items-center justify-center py-12 text-center">
                 <div className="mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-earth-sage-100 text-earth-sage-600">
@@ -404,7 +417,7 @@ const Contact = () => {
                 </button>
               </form>
             )}
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

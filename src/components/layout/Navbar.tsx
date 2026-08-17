@@ -3,10 +3,9 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, TreeDeciduous, CalendarCheck, Phone, ExternalLink } from 'lucide-react';
+import { Menu, X, TreeDeciduous, CalendarCheck, Phone } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import { ZnanyLekarzIcon } from '@/components/icons/ZnanyLekarzIcon';
+import { ZnanyLekarz } from '@/components/common/ZnanyLekarz';
 
 const navItems = [
   { name: 'Start', href: '/' },
@@ -70,17 +69,11 @@ const Navbar = () => {
 
         {/* Quick Access CTA Button */}
         <div className="hidden sm:flex items-center space-x-3">
-          <a
-            href="https://www.znanylekarz.pl/kamila-helta/psychoterapeuta/chojnice"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-teal-50 hover:bg-teal-100 border border-teal-200/80 text-teal-800 text-xs font-semibold transition-all hover:shadow-xs group"
-            title="Zobacz profil na ZnanyLekarz.pl"
-          >
-            <ZnanyLekarzIcon size={18} className="shrink-0 group-hover:scale-105 transition-transform" />
-            <span className="hidden md:inline">ZnanyLekarz</span>
-            <ExternalLink size={12} className="text-teal-600 opacity-75" />
-          </a>
+          <ZnanyLekarz
+            text={<span className="hidden md:inline">ZnanyLekarz</span>}
+            showExternalIcon
+            iconSize={18}
+          />
           <a
             href="tel:889470294"
             className="hidden xl:flex items-center gap-1.5 text-sm font-semibold text-earth-brown-700 hover:text-earth-sage-600 transition-colors"
@@ -99,15 +92,12 @@ const Navbar = () => {
 
         {/* Mobile Menu Button */}
         <div className="lg:hidden flex items-center gap-2.5">
-          <a
-            href="https://www.znanylekarz.pl/kamila-helta/psychoterapeuta/chojnice"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="sm:hidden inline-flex items-center gap-1 px-2.5 py-1.5 rounded-full bg-teal-50 border border-teal-200 text-teal-800 text-xs font-semibold"
+          <ZnanyLekarz
+            text={null}
+            iconSize={16}
             aria-label="Profil ZnanyLekarz"
-          >
-            <ZnanyLekarzIcon size={16} />
-          </a>
+            className="sm:hidden px-2.5 py-1.5"
+          />
           <Link
             href="/kontakt"
             className="sm:hidden bg-earth-sage-600 text-earth-beige-50 text-xs font-bold py-2 px-3 rounded-full shadow-sm"
@@ -125,63 +115,53 @@ const Navbar = () => {
       </div>
 
       {/* Mobile Navigation Dropdown */}
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden bg-white border-b border-earth-beige-200 mt-3 rounded-2xl shadow-xl overflow-hidden"
-          >
-            <div className="flex flex-col space-y-3 px-6 py-6">
-              {navItems.map((item) => {
-                const isActive = pathname === item.href;
-                return (
-                  <Link
-                    key={item.name}
-                    href={item.href}
-                    onClick={() => setIsOpen(false)}
-                    className={cn(
-                      'text-base font-semibold py-2 border-b border-earth-beige-100 transition-colors flex justify-between items-center',
-                      isActive ? 'text-earth-sage-600 font-bold' : 'text-earth-brown-800 hover:text-earth-sage-600'
-                    )}
-                  >
-                    <span>{item.name}</span>
-                    {isActive && <span className="w-2 h-2 rounded-full bg-earth-sage-600" />}
-                  </Link>
-                );
-              })}
-              <div className="pt-2 flex flex-col gap-3">
-                <a
-                  href="https://www.znanylekarz.pl/kamila-helta/psychoterapeuta/chojnice"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={() => setIsOpen(false)}
-                  className="w-full text-center border border-teal-200 bg-teal-50 hover:bg-teal-100 text-teal-800 font-semibold py-2.5 rounded-xl flex items-center justify-center gap-2 text-sm transition-colors"
-                >
-                  <ZnanyLekarzIcon size={20} />
-                  <span>Profil na ZnanyLekarz.pl</span>
-                  <ExternalLink size={14} className="text-teal-600" />
-                </a>
+      {isOpen && (
+        <div className="lg:hidden bg-white border-b border-earth-beige-200 mt-3 rounded-2xl shadow-xl overflow-hidden animate-fadeIn">
+          <div className="flex flex-col space-y-3 px-6 py-6">
+            {navItems.map((item) => {
+              const isActive = pathname === item.href;
+              return (
                 <Link
-                  href="/kontakt"
+                  key={item.name}
+                  href={item.href}
                   onClick={() => setIsOpen(false)}
-                  className="w-full text-center bg-earth-sage-600 text-earth-beige-50 font-bold py-3 rounded-xl shadow-md"
+                  className={cn(
+                    'text-base font-semibold py-2 border-b border-earth-beige-100 transition-colors flex justify-between items-center',
+                    isActive ? 'text-earth-sage-600 font-bold' : 'text-earth-brown-800 hover:text-earth-sage-600'
+                  )}
                 >
-                  Pierwsza konsultacja
+                  <span>{item.name}</span>
+                  {isActive && <span className="w-2 h-2 rounded-full bg-earth-sage-600" />}
                 </Link>
-                <a
-                  href="tel:889470294"
-                  className="w-full text-center border border-earth-beige-300 text-earth-brown-800 font-semibold py-2.5 rounded-xl flex items-center justify-center gap-2"
-                >
-                  <Phone size={16} className="text-earth-sage-600" />
-                  <span>Zadzwoń: 889 470 294</span>
-                </a>
-              </div>
+              );
+            })}
+            <div className="pt-2 flex flex-col gap-3">
+              <ZnanyLekarz
+                text="Profil na ZnanyLekarz.pl"
+                variant="outline"
+                showExternalIcon
+                iconSize={20}
+                onClick={() => setIsOpen(false)}
+                className="w-full"
+              />
+              <Link
+                href="/kontakt"
+                onClick={() => setIsOpen(false)}
+                className="w-full text-center bg-earth-sage-600 text-earth-beige-50 font-bold py-3 rounded-xl shadow-md"
+              >
+                Pierwsza konsultacja
+              </Link>
+              <a
+                href="tel:889470294"
+                className="w-full text-center border border-earth-beige-300 text-earth-brown-800 font-semibold py-2.5 rounded-xl flex items-center justify-center gap-2"
+              >
+                <Phone size={16} className="text-earth-sage-600" />
+                <span>Zadzwoń: 889 470 294</span>
+              </a>
             </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+          </div>
+        </div>
+      )}
     </nav>
   );
 };
