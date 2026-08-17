@@ -1,9 +1,17 @@
+'use client';
+
 import React from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { Phone, Calendar, ArrowRight } from 'lucide-react';
 import { ZnanyLekarz } from '@/components/common/ZnanyLekarz';
 
 const FloatingContactCTA = () => {
+  const pathname = usePathname();
+
+  if (pathname === '/kontakt') {
+    return null;
+  }
   return (
     <>
       {/* Floating CTA pill for desktop & tablet */}
