@@ -14,8 +14,6 @@ import {
   CalendarCheck,
 } from "lucide-react";
 
-const emailAddress = process.env.NEXT_PUBLIC_EMAIL;
-
 const Contact = () => {
   const [formState, setFormState] = useState({
     name: "",
@@ -40,11 +38,14 @@ const Contact = () => {
     const name = formState.name.trim();
     const email = formState.email.trim();
     const message = formState.message.trim();
+    const phone = formState.phone.trim();
     const website = formState.website.trim();
 
     if (website) {
       setSubmitted(true);
-      setStatusMessage("Dziękuję za wiadomość.");
+      setStatusMessage(
+        "Dziękuję za wiadomość. Skontaktuję się z Tobą najszybciej, jak to możliwe.",
+      );
       setIsSubmitting(false);
       return;
     }
@@ -70,35 +71,52 @@ const Contact = () => {
       return;
     }
 
-    const subject = encodeURIComponent(`Nowe zapytanie ze strony - ${name}`);
-    const body = encodeURIComponent(
-      [
-        `Imię i nazwisko: ${name}`,
-        `E-mail: ${email}`,
-        formState.phone.trim() ? `Telefon: ${formState.phone.trim()}` : "",
-        "",
-        "Wiadomość:",
-        message,
-      ]
-        .filter(Boolean)
-        .join("\n"),
-    );
+    try {
+      const response = await fetch("/send-mail.php", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          name,
+          email,
+          phone,
+          message,
+          rodoConsent: formState.rodoConsent,
+          website,
+        }),
+      });
 
-    window.location.href = `mailto:${emailAddress}?subject=${subject}&body=${body}`;
+      const data = await response.json().catch(() => null);
 
-    setSubmitted(true);
-    setStatusMessage(
-      "Dziękuję za wiadomość. Proszę sprawdzić skrzynkę pocztową, aby dokończyć wysłanie.",
-    );
-    setFormState({
-      name: "",
-      email: "",
-      phone: "",
-      message: "",
-      rodoConsent: false,
-      website: "",
-    });
-    setIsSubmitting(false);
+      if (response.ok && data?.success) {
+        setSubmitted(true);
+        setStatusMessage(
+          data.message ||
+            "Dziękuję za wiadomość. Skontaktuję się z Tobą najszybciej, jak to możliwe.",
+        );
+        setFormState({
+          name: "",
+          email: "",
+          phone: "",
+          message: "",
+          rodoConsent: false,
+          website: "",
+        });
+      } else {
+        setErrorMessage(
+          data?.message ||
+            "Wystąpił błąd podczas wysyłania wiadomości. Spróbuj ponownie lub skontaktuj się pod adresem kamila@helta.pl.",
+        );
+      }
+    } catch {
+      setErrorMessage(
+        "Nie udało się wysłać formularza. Sprawdź połączenie z internetem lub skontaktuj się bezpośrednio pod adresem kamila@helta.pl.",
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (
