@@ -72,7 +72,7 @@ if (!empty($errors)) {
 }
 
 // Configuration
-$toEmail = 'olaf.koziara@gmail.com';
+$toEmail = 'kamila@helta.pl';
 $subjectRaw = "Nowa wiadomość z formularza: " . $name;
 $subject = '=?UTF-8?B?' . base64_encode($subjectRaw) . '?=';
 
