@@ -1,0 +1,5 @@
+User-Agent: *
+Allow: /
+Disallow: /polityka-prywatnosci
+
+Sitemap: https://kamilahelta.pl/sitemap.xml
